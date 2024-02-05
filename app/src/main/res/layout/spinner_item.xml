@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    android:hint="Select branch"
+    android:textColorHint="#213B85"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="14dp"
+    android:textColor="@color/black" />

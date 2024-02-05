@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+
+    <color name="black_161616">#161616</color>
+    <color name="transparent">#00000000</color>
+
+
+    <color name="grey">#ededed</color>
+    <color name="grey_more">#DEDCDF</color>
+    <color name="grey_light">#F7F6F8</color>
+    <color name="grey_dark">#F1EFF2</color>
+    <color name="grey_darkest">#50555C</color>
+    <color name="grey_898">#898A8D</color>
+    <color name="grey_f5f5f5">#F5F5F5</color>
+    <color name="grey_cfcbcb">#CFCBCB</color>
+    <color name="grey_263238">#263238</color>
+    <color name="grey_999898"> #999898</color>
+    <color name="grey_5F5D5D">#5F5D5D</color>
+    <color name="grey_f0f1f3">#f0f1f3</color>
+    <color name="grey_80000000">#80000000</color>
+    <color name="grey_b3000000">#b3000000</color>
+    <color name="grey_4f000000">#4f000000</color>
+    <color name="grey_33000000">#33000000</color>
+    <color name="grey_4c000000">#4c000000</color>
+    <color name="grey_d9eaeaea">#d9eaeaea</color>
+    <color name="grey_a6000000">#a6000000</color>
+    <color name="grey_e9e9e9">#e9e9e9</color>
+    <color name="grey_e6101010">#e6101010</color>
+    <color name="grey_80121212">#80121212</color>
+    <color name="grey_A6A4A4">#A6A4A4</color>
+    <color name="grey_A7A5A5">#A7A5A5</color>
+    <color name="grey_F7F6F8">#F7F6F8</color>
+    <color name="grey_868383">#868383</color>
+    <color name="grey_F1EFF2">#F1EFF2</color>
+    <color name="grey_A8A6A6">#A8A6A6</color>
+    <color name="grey_BEBEBE">#BEBEBE</color>
+    <color name="grey_DBDBDB">#DBDBDB</color>
+    <color name="red_EA1414">#EA1414</color>
+    <color name="brown_CB7345">#CB7345</color>
+    <color name="grey_B5B5B5">#B5B5B5</color>
+    <color name="primary_color">#804F9F</color>
+</resources>
