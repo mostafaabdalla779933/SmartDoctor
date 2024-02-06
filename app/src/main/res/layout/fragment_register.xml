@@ -89,7 +89,7 @@
                     android:maxLines="1"
                     android:paddingVertical="12dp"
                     android:paddingHorizontal="17dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/black"
                     style="@style/EditText.edit" />
 
@@ -103,7 +103,7 @@
                     android:layout_marginStart="8dp"
                     android:paddingVertical="12dp"
                     android:paddingHorizontal="17dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/black"
                     style="@style/EditText.edit" />
 
@@ -117,7 +117,7 @@
                     android:paddingVertical="12dp"
                     android:paddingHorizontal="17dp"
                     android:layout_marginStart="8dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/black"
                     style="@style/EditText.edit" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -128,11 +128,12 @@
                 android:layout_height="0dp"
                 app:layout_constraintWidth_percent="0.22"
                 android:paddingHorizontal="17dp"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textColor="@color/black"
                 style="@style/EditText.edit"
                 android:layout_marginStart="8dp"
-                tools:text="32"
+                android:hint="23"
+                android:maxLines="1"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/llBirthDate"
@@ -216,31 +217,17 @@
             app:cornerRadius="4dp"
             android:paddingVertical="15dp" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="24dp">
+            android:id="@+id/btn_login"
+            android:layout_marginVertical="30dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:text="Already have and account?,Login"
+            android:textSize="15sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/black"
-                android:text="Already have and account?"
-                android:textSize="15sp"/>
 
-            <TextView
-                android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/accent_color"
-                android:text="Login"
-                android:layout_marginStart="4dp"
-                android:textSize="15sp"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

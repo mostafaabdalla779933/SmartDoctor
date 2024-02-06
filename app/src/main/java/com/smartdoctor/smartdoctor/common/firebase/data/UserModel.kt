@@ -15,82 +15,20 @@ data class UserModel(
     var profileUrl:String? ="",
     var mobile: String? = "",
     var userType:String?="",
-    var city:String? ="",
-    var street:String? ="",
-    var building:String? ="",
-    var block:String? ="",
-    var avenues:String? = "",
-    var floor:String?="",
-    var licenceUrl:String? ="",
-    var licenceUri:Uri?=null,
-    var validityLicenceUrl:String?="",
-    var validityLicenceUri:Uri?=null,
-    var whatsApp:String?="",
-    var twitter:String?="",
-    var insta:String?="",
-    var about:String?="",
-    var read:Boolean?= false,
+    var birthDate:String?="",
+    var idNumber:String?="",
     var userState: String?=UserState.Accepted.value
 ) : Parcelable {
-    fun getAddress(): String {
 
-        var address = "City:$city, Block:$block, St:$street, Building:$building"
-        if (floor.isNullOrEmpty().not()) {
-            address = "$address, Floor:$floor"
-        }
-
-        if (avenues.isNullOrEmpty().not()) {
-            address = "$address, Avenue:$avenues"
-        }
-
-        return address
-    }
 }
 
-data class DonationCategory(var name:String,var isSelected:Boolean=false)
 
-val donationCategoryList = listOf(DonationCategory("Teach a child"),
-    DonationCategory("Input Building a children's hospital"),
-    DonationCategory("Treat a child under the age of 18"),
-    DonationCategory("Orphan"),
-    DonationCategory("Other")
-)
 
-const val IndividualDonation = "Individual donation"
-const val GroupDonation ="Group donation"
 
-@Parcelize
-data class DonationModel(
-    var name: String? = "",
-    var listOfPhotos:MutableList<String?>?= mutableListOf(),
-    var listOfAchievement:MutableList<String?>?= mutableListOf(),
-    var listOfUris:MutableList<Uri>?=null,
-    var address: String? = "",
-    var donationType: String? = "",
-    var desc: String? = "",
-    var date: String? = "",
-    var link: String? = "",
-    var value: Double? = 0.0,
-    var donationValue: Double? = 0.0,  // for GroupDonation
-    var numberOfBeneficiaries: String? = "",
-    var donationNumber: Int? = 0,  // for IndividualDonation
-    var listOfCategories:MutableList<String?>?= mutableListOf(),
-    var hash:String?="",
-    var creator:UserModel?= null,
-    var isEffort:Boolean?= false,
-    var listOfDonors:MutableList<Donor?>?= mutableListOf()
-):Parcelable
 
-@Parcelize
-data class Donor(
-    var donor:UserModel?=null,
-    var numberOfDonation:Int?=1,
-    var valueOfDonation:Double?=0.0
-) : Parcelable
 
 @Parcelize
 data class NotificationModel(
-    val donation :DonationModel?=null,
     val hash:String?=null,
     val fromCharity:UserModel?=null,
     val toUserId:String?=null,

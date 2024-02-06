@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
+import com.donationinstitutions.donationinstitutions.common.firebase.data.UserState
 import com.donationinstitutions.donationinstitutions.common.firebase.data.UserType
 import com.smartdoctor.smartdoctor.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
@@ -34,17 +35,39 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
             FirebaseHelp.getUser({
                 hideLoading()
                 FirebaseHelp.user = it
-                when (it.userType) {
-                    UserType.HealthCenter.value -> {
-                        // findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToAdminDashboardFragment())
+                when (it.userState) {
+                    UserState.Pending.value -> {
+                        showErrorMsg("Pending account, please try again later")
+                        FirebaseHelp.logout()
+                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
                     }
 
-                    UserType.Doctor.value -> {
-                        // findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToDonorDashboardFragment())
+                    UserState.Deleted.value -> {
+                        showErrorMsg("account deleted")
+                        FirebaseHelp.logout()
+                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
                     }
 
-                    UserType.User.value -> {
-                        //  findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToCharityDashboardFragment())
+                    UserState.Rejected.value -> {
+                        showErrorMsg("account Rejected")
+                        FirebaseHelp.logout()
+                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+                    }
+
+                    UserState.Accepted.value -> {
+                        when (it.userType) {
+                            UserType.HealthCenter.value -> {
+                                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHealthCareDashboardFragment())
+                            }
+
+                            UserType.Doctor.value -> {
+                                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToDoctorDashboardFragment())
+                            }
+
+                            UserType.User.value -> {
+                                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToUserDashboardFragment())
+                            }
+                        }
                     }
                 }
 

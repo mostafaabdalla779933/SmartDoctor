@@ -252,3 +252,25 @@ fun Uri.getName(context: Context):String{
 }
 
 
+fun String.calculateAge(): Int {
+    val currentDate = Calendar.getInstance().time
+    val birthDate = SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy", Locale.US).parse(this)
+
+    val currentCalendar = Calendar.getInstance()
+    currentCalendar.time = currentDate
+
+    val birthCalendar = Calendar.getInstance()
+    birthCalendar.time = birthDate
+
+    var age = currentCalendar.get(Calendar.YEAR) - birthCalendar.get(Calendar.YEAR)
+
+    // Check if the birthday has occurred this year
+    if (currentCalendar.get(Calendar.DAY_OF_YEAR) < birthCalendar.get(Calendar.DAY_OF_YEAR)) {
+        age--
+    }
+
+    return age
+}
+
+
+
