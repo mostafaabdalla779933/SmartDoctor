@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.finger_scanning.FingerScanningFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_color"
+            app:navigationIcon="@drawable/iv_back"
+            app:title="Finger scanning"
+            app:titleCentered="true"
+            app:titleTextColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_finger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iv_finger_print"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb"/>
+
+        <TextView
+            android:id="@+id/tv_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Heart pulse"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            android:textColor="@color/accent_color"
+            android:layout_marginTop="65dp"
+            app:layout_constraintStart_toStartOf="@id/ll_pulse"
+            app:layout_constraintEnd_toEndOf="@id/ll_pulse"
+            app:layout_constraintTop_toBottomOf="@+id/iv_finger"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_pulse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_rounded_accent"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_h">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/iv_stress"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60:100 / Mint"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginVertical="10dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tv_heart_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="72"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_pulse"
+            app:layout_constraintStart_toStartOf="@id/ll_pulse"
+            app:layout_constraintEnd_toEndOf="@id/ll_pulse"/>
+
+        <TextView
+            android:id="@+id/tv_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stress"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            android:textColor="@color/accent_color"
+            android:layout_marginTop="65dp"
+            app:layout_constraintStart_toStartOf="@id/ll_stress"
+            app:layout_constraintEnd_toEndOf="@id/ll_stress"
+            app:layout_constraintTop_toBottomOf="@+id/iv_finger"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_stress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/bg_rounded_accent"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintStart_toEndOf="@id/ll_pulse"
+            app:layout_constraintTop_toTopOf="@+id/ll_pulse"
+            app:layout_constraintBottom_toBottomOf="@id/ll_pulse"
+            app:layout_constraintEnd_toStartOf="@+id/ll_oxygen_ratio">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/iv_stress"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 : 7%"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginVertical="10dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tv_stress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="3.5%"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_stress"
+            app:layout_constraintStart_toStartOf="@id/ll_stress"
+            app:layout_constraintEnd_toEndOf="@id/ll_stress"/>
+
+        <TextView
+            android:id="@+id/tv_o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oxygen ratio"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            android:textColor="@color/accent_color"
+            android:layout_marginTop="65dp"
+            app:layout_constraintStart_toStartOf="@id/ll_oxygen_ratio"
+            app:layout_constraintEnd_toEndOf="@id/ll_oxygen_ratio"
+            app:layout_constraintTop_toBottomOf="@+id/iv_finger"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_oxygen_ratio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_rounded_accent"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintStart_toEndOf="@id/ll_stress"
+            app:layout_constraintTop_toTopOf="@+id/ll_stress"
+            app:layout_constraintBottom_toBottomOf="@id/ll_stress"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/iv_oxygen_ratio"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="95 : 100%"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_marginVertical="10dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tv_oxygen_ratio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="97%"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_oxygen_ratio"
+            app:layout_constraintStart_toStartOf="@id/ll_oxygen_ratio"
+            app:layout_constraintEnd_toEndOf="@id/ll_oxygen_ratio"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -8,7 +8,6 @@ import com.donationinstitutions.donationinstitutions.common.firebase.data.UserTy
 import com.donationinstitutions.donationinstitutions.common.getString
 import com.donationinstitutions.donationinstitutions.common.isStringEmpty
 import com.smartdoctor.smartdoctor.databinding.FragmentLoginBinding
-import com.smartdoctor.smartdoctor.feature.SplashFragmentDirections
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override fun initBinding() = FragmentLoginBinding.inflate(layoutInflater)

@@ -11,7 +11,7 @@ import com.smartdoctor.smartdoctor.databinding.FragmentDoctorDashboardBinding
 
 
 class DoctorDashboardFragment : BaseFragment<FragmentDoctorDashboardBinding>() {
-    override fun initBinding()=FragmentDoctorDashboardBinding.inflate(layoutInflater)
+    override fun initBinding() = FragmentDoctorDashboardBinding.inflate(layoutInflater)
     override fun onFragmentCreated() {
         handleCustomBack {
             requireActivity().finish()

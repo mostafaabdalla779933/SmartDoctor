@@ -6,7 +6,7 @@ import com.smartdoctor.smartdoctor.databinding.FragmentHealthCareDashboardBindin
 
 
 class HealthCareDashboardFragment : BaseFragment<FragmentHealthCareDashboardBinding>() {
-    override fun initBinding()=FragmentHealthCareDashboardBinding.inflate(layoutInflater)
+    override fun initBinding() = FragmentHealthCareDashboardBinding.inflate(layoutInflater)
 
     override fun onFragmentCreated() {
         handleCustomBack {
