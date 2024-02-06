@@ -111,10 +111,23 @@
         android:id="@+id/healthCareDashboardFragment"
         android:name="com.smartdoctor.smartdoctor.feature.dashboard.HealthCareDashboardFragment"
         android:label="fragment_health_care_dashboard"
-        tools:layout="@layout/fragment_health_care_dashboard" />
+        tools:layout="@layout/fragment_health_care_dashboard" >
+        <action
+            android:id="@+id/action_healthCareDashboardFragment_to_doctorsFragment"
+            app:destination="@id/doctorsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/userDashboardFragment"
         android:name="com.smartdoctor.smartdoctor.feature.dashboard.UserDashboardFragment"
         android:label="fragment_user_dashboard"
         tools:layout="@layout/fragment_user_dashboard" />
+    <fragment
+        android:id="@+id/doctorsFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.doctors.DoctorsFragment"
+        android:label="fragment_doctors"
+        tools:layout="@layout/fragment_doctors" />
 </navigation>
