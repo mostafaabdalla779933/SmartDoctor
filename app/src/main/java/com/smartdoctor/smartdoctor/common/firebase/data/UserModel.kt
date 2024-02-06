@@ -101,7 +101,7 @@ data class NotificationModel(
 
 
 enum class UserType(val value:String){
-    Admin("Admin"),Donor("Donor"),Charity("Charity")
+    HealthCenter("HealthCenter"),Doctor("Doctor"),User("User")
 }
 
 enum class UserState(val value:String){
