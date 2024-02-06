@@ -6,7 +6,7 @@ import com.smartdoctor.smartdoctor.databinding.FragmentSplashBinding
 
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
-    override fun initBinding()= FragmentSplashBinding.inflate(layoutInflater)
+    override fun initBinding() = FragmentSplashBinding.inflate(layoutInflater)
 
     override fun onFragmentCreated() {
 

@@ -52,5 +52,7 @@
     <color name="red_EA1414">#EA1414</color>
     <color name="brown_CB7345">#CB7345</color>
     <color name="grey_B5B5B5">#B5B5B5</color>
-    <color name="primary_color">#804F9F</color>
+
+    <color name="primary_color">#76CCD3</color>
+    <color name="accent_color">#B9D35E</color>
 </resources>

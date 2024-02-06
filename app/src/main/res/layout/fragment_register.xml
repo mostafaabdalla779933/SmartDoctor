@@ -1,14 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".feature.register.RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white"
+        android:paddingHorizontal="24dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iv_login"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="48dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:text="Sign up"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:hint="Full name"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/EditText.edit"
+            android:padding="14dp" />
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="phone"
+            android:hint="Mobile number"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/EditText.edit"
+            android:padding="14dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:text="Birth of date:"
+                android:textSize="13sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llBirthDate"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.75"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:weightSum="3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date">
+
+                <TextView
+                    android:id="@+id/tvDayPicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="day"
+                    android:maxLines="1"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="17dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    style="@style/EditText.edit" />
+
+                <TextView
+                    android:id="@+id/tvMonthPicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Month"
+                    android:maxLines="1"
+                    android:layout_marginStart="8dp"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="17dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    style="@style/EditText.edit" />
+
+                <TextView
+                    android:id="@+id/tvYearPicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Year"
+                    android:maxLines="1"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="17dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    style="@style/EditText.edit" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent="0.22"
+                android:paddingHorizontal="17dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                style="@style/EditText.edit"
+                android:layout_marginStart="8dp"
+                tools:text="32"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llBirthDate"
+                app:layout_constraintBottom_toBottomOf="@id/llBirthDate"
+                app:layout_constraintStart_toEndOf="@id/llBirthDate"/>
+
+            <TextView
+                android:id="@+id/tv_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:text="Age:"
+                android:textSize="13sp"
+                app:layout_constraintTop_toTopOf="@id/tv_date"
+                app:layout_constraintStart_toStartOf="@id/tv_age"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/et_id_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            android:hint="ID No."
+            android:fontFamily="@font/poppins_regular"
+            style="@style/EditText.edit"
+            android:padding="14dp" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/EditText.edit"
+            android:padding="14dp" />
+
+        <Spinner
+            android:id="@+id/spinnerJobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:popupBackground="@color/white"
+            android:background="@drawable/bg_tv_spinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nationality"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.edit"
+            android:padding="14dp"
+            android:hint="Password"
+            android:fontFamily="@font/poppins_regular"
+            android:inputType="textPassword"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/et_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.edit"
+            android:padding="14dp"
+            android:hint="Confirm password"
+            android:fontFamily="@font/poppins_regular"
+            android:inputType="textPassword"
+            android:layout_marginTop="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            style="@style/roundedButton"
+            android:text="Sign Up"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="18sp"
+            app:cornerRadius="4dp"
+            android:paddingVertical="15dp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:text="Already have and account?"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/accent_color"
+                android:text="Login"
+                android:layout_marginStart="4dp"
+                android:textSize="15sp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>
