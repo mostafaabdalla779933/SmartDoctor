@@ -20,7 +20,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Doctor photo"
-            android:textColor="@color/grey"
+            android:textColor="@color/grey_darker"
             android:textSize="16sp" />
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -41,7 +41,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Doctor name"
-            android:textColor="@color/grey"
+            android:textColor="@color/grey_darker"
             android:textSize="16sp" />
 
         <EditText
