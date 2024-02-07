@@ -129,5 +129,18 @@
         android:id="@+id/doctorsFragment"
         android:name="com.smartdoctor.smartdoctor.feature.doctors.DoctorsFragment"
         android:label="fragment_doctors"
-        tools:layout="@layout/fragment_doctors" />
+        tools:layout="@layout/fragment_doctors" >
+        <action
+            android:id="@+id/action_doctorsFragment_to_addDoctorFragment"
+            app:destination="@id/addDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addDoctorFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.doctors.AddDoctorFragment"
+        android:label="fragment_add_doctor"
+        tools:layout="@layout/fragment_add_doctor" />
 </navigation>
