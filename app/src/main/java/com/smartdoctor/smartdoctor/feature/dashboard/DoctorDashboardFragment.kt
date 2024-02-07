@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.databinding.FragmentDoctorDashboardBinding
+import com.smartdoctor.smartdoctor.feature.doctors.DoctorsFragmentDirections
 
 
 class DoctorDashboardFragment : BaseFragment<FragmentDoctorDashboardBinding>() {
@@ -24,7 +26,12 @@ class DoctorDashboardFragment : BaseFragment<FragmentDoctorDashboardBinding>() {
                 requireActivity().finish()
                 requireActivity().startActivity(requireActivity().intent)
             }
+
+            ivNotification.setOnClickListener {
+                findNavController().navigate(DoctorDashboardFragmentDirections.actionDoctorDashboardFragmentToNotificationFragment())
+            }
         }
+
     }
 
     override fun reload() {

@@ -106,7 +106,15 @@
         android:id="@+id/doctorDashboardFragment"
         android:name="com.smartdoctor.smartdoctor.feature.dashboard.DoctorDashboardFragment"
         android:label="fragment_doctor_dashboard"
-        tools:layout="@layout/fragment_doctor_dashboard" />
+        tools:layout="@layout/fragment_doctor_dashboard" >
+        <action
+            android:id="@+id/action_doctorDashboardFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/healthCareDashboardFragment"
         android:name="com.smartdoctor.smartdoctor.feature.dashboard.HealthCareDashboardFragment"
@@ -124,7 +132,22 @@
         android:id="@+id/userDashboardFragment"
         android:name="com.smartdoctor.smartdoctor.feature.dashboard.UserDashboardFragment"
         android:label="fragment_user_dashboard"
-        tools:layout="@layout/fragment_user_dashboard" />
+        tools:layout="@layout/fragment_user_dashboard" >
+        <action
+            android:id="@+id/action_userDashboardFragment_to_fingerScanningFragment"
+            app:destination="@id/fingerScanningFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_userDashboardFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/doctorsFragment"
         android:name="com.smartdoctor.smartdoctor.feature.doctors.DoctorsFragment"
@@ -143,4 +166,14 @@
         android:name="com.smartdoctor.smartdoctor.feature.doctors.AddDoctorFragment"
         android:label="fragment_add_doctor"
         tools:layout="@layout/fragment_add_doctor" />
+    <fragment
+        android:id="@+id/fingerScanningFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.finger_scanning.FingerScanningFragment"
+        android:label="fragment_finger_scanning"
+        tools:layout="@layout/fragment_finger_scanning" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 </navigation>
