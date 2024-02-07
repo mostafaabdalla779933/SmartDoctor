@@ -1,139 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".feature.doctors.AddDoctorFragment">
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/primary_color"
+        app:navigationIcon="@drawable/iv_back"
+        app:title="Add Doctor"
+        app:titleCentered="true"
+        app:titleTextColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Doctor photo"
-            android:textColor="@color/grey"
-            android:textSize="16sp" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        tools:context=".feature.doctors.AddDoctorFragment">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_doctor"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:background="#2676CCD3"
-            android:scaleType="centerInside"
-            android:src="@drawable/add"
-            app:shapeAppearance="@style/RoundedImageView.5p" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Doctor name"
-            android:textColor="@color/grey"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/et_name"
-            style="@style/EditText.edit"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:hint="name"
-            android:inputType="text"
-            android:padding="14dp" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_bio"
-            style="@style/EditText.edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:gravity="top|start"
-            android:hint="Bio"
-            android:inputType="textMultiLine"
-            android:lines="4"
-            android:padding="14dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Doctor photo"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/et_job_number"
-            style="@style/EditText.edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:hint="Job number"
-            android:inputType="number"
-            android:padding="14dp" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_doctor"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="#2676CCD3"
+                android:scaleType="centerInside"
+                android:src="@drawable/add"
+                app:shapeAppearance="@style/RoundedImageView.5p" />
 
-        <Spinner
-            android:id="@+id/spinner_specialization"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_tv_spinner"
-            android:popupBackground="@color/white" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Doctor name"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_specialization"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:background="#237F8A"
-            app:shapeAppearance="@style/RoundedImageView.5p" />
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/EditText.edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:hint="name"
+                android:inputType="text"
+                android:padding="14dp" />
 
-        <EditText
-            android:id="@+id/et_email"
-            style="@style/EditText.edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="14dp" />
+            <EditText
+                android:id="@+id/et_bio"
+                style="@style/EditText.edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top|start"
+                android:hint="Bio"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:padding="14dp" />
 
-        <TextView
-            android:id="@+id/tv_birth_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:padding="14dp"
-            android:background="@drawable/bg_edit_text"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Bith of date"
-            android:drawableEnd="@drawable/ic_calender"
-            android:textColor="#30003233"
-            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/et_job_number"
+                style="@style/EditText.edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:hint="Job number"
+                android:inputType="number"
+                android:padding="14dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add_doctor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="24dp"
-            android:layout_marginHorizontal="16dp"
-            style="@style/roundedButton"
-            android:text="Add doctor"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="18sp"
-            app:cornerRadius="4dp"
-            android:paddingVertical="12dp" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</androidx.core.widget.NestedScrollView>
+            <Spinner
+                android:id="@+id/spinner_specialization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_tv_spinner"
+                android:popupBackground="@color/white" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_specialization"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="#237F8A"
+                app:shapeAppearance="@style/RoundedImageView.5p" />
+
+            <EditText
+                android:id="@+id/et_email"
+                style="@style/EditText.edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="14dp" />
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EditText.edit"
+                android:padding="14dp"
+                android:hint="Password"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EditText.edit"
+                android:padding="14dp"
+                android:hint="Confirm password"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="textPassword"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/tv_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:fontFamily="@font/poppins_regular"
+                android:padding="14dp"
+                android:hint="Birth of date"
+                android:textColorHint="#30003233"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_calender" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_doctor"
+                style="@style/roundedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingVertical="12dp"
+                android:text="Add doctor"
+                android:textSize="18sp"
+                app:cornerRadius="4dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

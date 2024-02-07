@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:strokeColor="#CFCFCF"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="10dp"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="@color/white">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="5dp"
+            android:background="#2B2B2B26"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="11dp"
+            android:id="@+id/ivEdit"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_doctor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="5dp"
+            android:background="#26EE3E32"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="11dp"
+            android:id="@+id/ivDelete"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/ivProfile"
+            android:layout_marginHorizontal="5dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="@id/ivEdit"
+            app:layout_constraintStart_toEndOf="@id/ivEdit"
+            app:layout_constraintEnd_toStartOf="@id/ivDelete"
+            android:background="#1453A4"
+            app:shapeAppearance="@style/circleImageView"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ivProfile"
+            tools:text="Doctor name"
+            android:gravity="center"
+            android:id="@+id/tvName"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -17,7 +17,10 @@ data class UserModel(
     var userType:String?="",
     var birthDate:String?="",
     var idNumber:String?="",
-    var userState: String?=UserState.Accepted.value
+    var userState: String?=UserState.Accepted.value,
+    var bio:String?="",
+    var specialization:String?="",
+    var jobNumber:String?=""
 ) : Parcelable {
 
 }
