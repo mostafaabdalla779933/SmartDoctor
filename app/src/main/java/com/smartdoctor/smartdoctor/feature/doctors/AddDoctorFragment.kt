@@ -5,6 +5,7 @@ import com.smartdoctor.smartdoctor.databinding.FragmentAddDoctorBinding
 
 class AddDoctorFragment : BaseFragment<FragmentAddDoctorBinding>() {
     override fun initBinding() = FragmentAddDoctorBinding.inflate(layoutInflater)
+
     override fun onFragmentCreated() {
 
     }
