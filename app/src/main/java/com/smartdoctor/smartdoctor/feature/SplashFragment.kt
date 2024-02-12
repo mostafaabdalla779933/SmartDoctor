@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.donationinstitutions.donationinstitutions.common.firebase.data.UserState
 import com.donationinstitutions.donationinstitutions.common.firebase.data.UserType

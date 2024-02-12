@@ -1,11 +1,10 @@
 package com.smartdoctor.smartdoctor.feature.register
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.view.Window
 import android.widget.DatePicker
 import androidx.navigation.fragment.findNavController
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.base.DateFragmentForBirth
 import com.donationinstitutions.donationinstitutions.common.calculateAge
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp

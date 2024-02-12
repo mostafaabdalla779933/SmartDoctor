@@ -1,10 +1,9 @@
 package com.smartdoctor.smartdoctor.feature.dashboard
 
 import androidx.navigation.fragment.findNavController
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.databinding.FragmentUserDashboardBinding
-import com.smartdoctor.smartdoctor.feature.finger_scanning.FingerScanningFragment
 
 class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
     override fun initBinding() = FragmentUserDashboardBinding.inflate(layoutInflater)

@@ -1,7 +1,7 @@
 package com.smartdoctor.smartdoctor.feature.login
 
 import androidx.navigation.fragment.findNavController
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.donationinstitutions.donationinstitutions.common.firebase.data.UserState
 import com.donationinstitutions.donationinstitutions.common.firebase.data.UserType

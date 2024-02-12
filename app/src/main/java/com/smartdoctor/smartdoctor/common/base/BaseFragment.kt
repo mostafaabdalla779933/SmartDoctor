@@ -1,4 +1,4 @@
-package com.donationinstitutions.donationinstitutions.common.base
+package com.smartdoctor.smartdoctor.common.base
 
 
 import android.content.BroadcastReceiver
@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.viewbinding.ViewBinding
+import com.donationinstitutions.donationinstitutions.common.base.BaseView
+import com.donationinstitutions.donationinstitutions.common.base.ProgressDialog
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.google.android.material.snackbar.Snackbar
 import com.donationinstitutions.donationinstitutions.common.showMessage

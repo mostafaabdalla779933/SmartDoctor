@@ -1,6 +1,6 @@
 package com.smartdoctor.smartdoctor.feature.notification
 
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.databinding.FragmentNotificationBinding
 
 class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {

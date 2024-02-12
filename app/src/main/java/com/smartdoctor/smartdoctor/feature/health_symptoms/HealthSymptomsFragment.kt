@@ -1,6 +1,6 @@
 package com.smartdoctor.smartdoctor.feature.health_symptoms
 
-import com.donationinstitutions.donationinstitutions.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.databinding.FragmentHealthSymptomsBinding
 
 class HealthSymptomsFragment : BaseFragment<FragmentHealthSymptomsBinding>() {
