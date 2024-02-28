@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".feature.notification.NotificationFragment">
+    tools:context=".feature.diseases.PatientDiseasesFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tb"
@@ -15,17 +15,18 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_color"
         app:navigationIcon="@drawable/iv_back"
-        app:title="Notification"
+        app:title="Departments"
         app:titleCentered="true"
         app:titleTextColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_notifications"
+        android:id="@+id/rv_diseases"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_notification" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_patient_disease" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

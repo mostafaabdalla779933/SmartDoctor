@@ -21,7 +21,6 @@ class FingerScanningFragment : BaseFragment<FragmentFingerScanningBinding>() {
                 }, 1000)
             }
         }
-
     }
 
     private fun generateRandomValue(min: Int, max: Int): Int {
