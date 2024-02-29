@@ -20,6 +20,10 @@ class FingerScanningFragment : BaseFragment<FragmentFingerScanningBinding>() {
                     tvOxygenRatio.text = "${generateRandomValue(95, 100)}%"
                 }, 1000)
             }
+
+            ivFinger.setOnClickListener {
+                showMessage("long click")
+            }
         }
     }
 
