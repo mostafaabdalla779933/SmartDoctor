@@ -10,6 +10,4 @@ class EditDoctorFragment : BaseFragment<FragmentEditDoctorBinding>() {
 
     }
 
-    override fun reload() {}
-
 }

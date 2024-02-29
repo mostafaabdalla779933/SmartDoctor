@@ -3,6 +3,8 @@ package com.smartdoctor.smartdoctor.feature.dashboard
 import androidx.navigation.fragment.findNavController
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
+import com.donationinstitutions.donationinstitutions.common.navigateWithAnimation
+import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.databinding.FragmentUserDashboardBinding
 
 class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
@@ -24,6 +26,10 @@ class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
 
             ivNotification.setOnClickListener {
                 findNavController().navigate(UserDashboardFragmentDirections.actionUserDashboardFragmentToNotificationFragment())
+            }
+
+            tvInquiries.setOnClickListener {
+                findNavController().navigateWithAnimation(R.id.patientAllDoctorsFragment)
             }
         }
     }

@@ -188,4 +188,18 @@
         android:name="com.smartdoctor.smartdoctor.feature.patient_profile.PatientProfileFragment"
         android:label="fragment_patient_profile"
         tools:layout="@layout/fragment_patient_profile" />
+    <fragment
+        android:id="@+id/patientAllDoctorsFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.doctors.PatientAllDoctorsFragment"
+        android:label="fragment_patient_all_doctors"
+        tools:layout="@layout/fragment_patient_all_doctors" />
+    <fragment
+        android:id="@+id/doctorProfileFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.doctor_profile.DoctorProfileFragment"
+        android:label="fragment_doctor_profile"
+        tools:layout="@layout/fragment_doctor_profile" >
+        <argument
+            android:name="doctor"
+            app:argType="com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel" />
+    </fragment>
 </navigation>
