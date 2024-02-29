@@ -12,14 +12,21 @@ import android.location.Location
 import android.location.LocationManager
 import android.media.ExifInterface
 import android.net.Uri
+import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.IdRes
 import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import com.google.android.material.textfield.TextInputEditText
+import com.smartdoctor.smartdoctor.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -270,6 +277,20 @@ fun String.calculateAge(): Int {
     }
 
     return age
+}
+
+
+fun NavController.navigateWithAnimation(@IdRes resId: Int,bundle: Bundle = bundleOf()) {
+    this.navigate(
+        resId,
+        bundle,
+        NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .build()
+    )
 }
 
 
