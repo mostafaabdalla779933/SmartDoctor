@@ -1,126 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".feature.patient_profile.PatientProfileFragment">
 
-   <androidx.appcompat.widget.LinearLayoutCompat
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-       <com.google.android.material.appbar.MaterialToolbar
-           android:id="@+id/tb"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:background="@color/primary_color"
-           app:navigationIcon="@drawable/iv_back"
-           app:title="My profile"
-           app:titleCentered="true"
-           app:titleTextColor="#FFFFFF"
-           app:layout_constraintTop_toTopOf="parent"/>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/iv_back"
+            app:title="My profile"
+            app:titleCentered="true"
+            app:titleTextColor="#FFFFFF" />
 
-       <TextView
-           android:id="@+id/tv_name"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:layout_marginStart="16dp"
-           android:textColor="@color/black"
-           android:textSize="25sp"
-           android:fontFamily="@font/poppins_medium"
-           tools:text="Full name"/>
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:text="Full name" />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           android:layout_marginStart="16dp"
-           android:fontFamily="@font/poppins_regular"
-           app:layout_constraintStart_toStartOf="parent"
-           android:text="ID No"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="ID No"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent" />
 
-       <TextView
-           android:id="@+id/tv_id_number"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginHorizontal="16dp"
-           android:layout_marginTop="4dp"
-           android:background="@drawable/bg_tv_doctor_profile"
-           android:paddingHorizontal="24dp"
-           android:paddingVertical="12dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           tools:text="26551320102215" />
+        <TextView
+            android:id="@+id/tv_id_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_tv_doctor_profile"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="26551320102215" />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           android:layout_marginStart="16dp"
-           android:fontFamily="@font/poppins_regular"
-           app:layout_constraintStart_toStartOf="parent"
-           android:text="Mobile number"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Mobile number"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent" />
 
-       <TextView
-           android:id="@+id/tv_mobile_number"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginHorizontal="16dp"
-           android:layout_marginTop="4dp"
-           android:background="@drawable/bg_tv_doctor_profile"
-           android:paddingHorizontal="24dp"
-           android:paddingVertical="12dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           tools:text="26551320102215" />
+        <TextView
+            android:id="@+id/tv_mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_tv_doctor_profile"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="26551320102215" />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           android:layout_marginStart="16dp"
-           android:fontFamily="@font/poppins_regular"
-           app:layout_constraintStart_toStartOf="parent"
-           android:text="Address"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent" />
 
-       <TextView
-           android:id="@+id/tv_address"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginHorizontal="16dp"
-           android:layout_marginTop="4dp"
-           android:background="@drawable/bg_tv_doctor_profile"
-           android:paddingHorizontal="24dp"
-           android:paddingVertical="12dp"
-           android:textColor="@color/black"
-           android:textSize="14sp"
-           tools:text="Lorem Ipsum is simply dummy text of the printing" />
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_tv_doctor_profile"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Lorem Ipsum is simply dummy text of the printing" />
 
-       <com.google.android.material.button.MaterialButton
-           android:id="@+id/btn_logout"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="72dp"
-           android:layout_marginBottom="24dp"
-           android:paddingHorizontal="50dp"
-           style="@style/roundedButton"
-           android:text="LOGOUT"
-           android:textAllCaps="false"
-           android:backgroundTint="@color/accent_color"
-           android:fontFamily="@font/poppins_bold"
-           android:textSize="18sp"
-           app:cornerRadius="4dp"
-           android:layout_gravity="center"
-           android:paddingVertical="12dp" />
-   </androidx.appcompat.widget.LinearLayoutCompat>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_logout"
+            style="@style/roundedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="72dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/accent_color"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="12dp"
+            android:text="LOGOUT"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="4dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>
