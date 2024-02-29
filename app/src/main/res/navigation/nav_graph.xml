@@ -221,4 +221,9 @@
             app:argType="com.smartdoctor.smartdoctor.common.firebase.data.UserModel"
             android:name="userToSend" />
     </fragment>
+    <fragment
+        android:id="@+id/patientDiseasesFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.diseases.PatientDiseasesFragment"
+        android:label="fragment_patient_diseases"
+        tools:layout="@layout/fragment_patient_diseases" />
 </navigation>

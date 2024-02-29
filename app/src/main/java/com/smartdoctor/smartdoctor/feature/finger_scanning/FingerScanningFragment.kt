@@ -2,6 +2,7 @@ package com.smartdoctor.smartdoctor.feature.finger_scanning
 
 import android.os.Handler
 import android.os.Looper
+import androidx.navigation.fragment.findNavController
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.databinding.FragmentFingerScanningBinding
 import java.util.Random
@@ -23,6 +24,10 @@ class FingerScanningFragment : BaseFragment<FragmentFingerScanningBinding>() {
 
             ivFinger.setOnClickListener {
                 showMessage("long click")
+            }
+
+            tb.setNavigationOnClickListener {
+                findNavController().popBackStack()
             }
         }
     }

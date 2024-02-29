@@ -31,6 +31,10 @@ class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
             tvInquiries.setOnClickListener {
                 findNavController().navigateWithAnimation(R.id.patientAllDoctorsFragment)
             }
+
+            tvScanPatient.setOnClickListener {
+                findNavController().navigateWithAnimation(R.id.patientDiseasesFragment)
+            }
         }
     }
 
