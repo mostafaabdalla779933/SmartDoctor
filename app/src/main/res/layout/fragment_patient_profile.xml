@@ -115,6 +115,7 @@
            android:paddingHorizontal="50dp"
            style="@style/roundedButton"
            android:text="LOGOUT"
+           android:textAllCaps="false"
            android:backgroundTint="@color/accent_color"
            android:fontFamily="@font/poppins_bold"
            android:textSize="18sp"

@@ -15,9 +15,7 @@ class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
 
         binding.apply {
             ivProfile.setOnClickListener {
-                FirebaseHelp.logout()
-                requireActivity().finish()
-                requireActivity().startActivity(requireActivity().intent)
+                findNavController().navigate(UserDashboardFragmentDirections.actionUserDashboardFragmentToPatientProfileFragment())
             }
 
             tvFingerScan.setOnClickListener {
