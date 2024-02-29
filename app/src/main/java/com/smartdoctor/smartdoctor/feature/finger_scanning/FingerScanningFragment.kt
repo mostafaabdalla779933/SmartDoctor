@@ -28,7 +28,6 @@ class FingerScanningFragment : BaseFragment<FragmentFingerScanningBinding>() {
         return random.nextInt((max - min) + 1) + min
     }
 
-    override fun reload() {
-    }
+
 
 }

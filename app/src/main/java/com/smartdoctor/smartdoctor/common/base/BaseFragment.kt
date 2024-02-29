@@ -39,7 +39,9 @@ abstract class BaseFragment<V : ViewBinding>
 
     abstract fun onFragmentCreated()
 
-    abstract fun reload()
+    open fun reload(){
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
