@@ -188,4 +188,23 @@
         android:name="com.smartdoctor.smartdoctor.feature.patient_profile.PatientProfileFragment"
         android:label="fragment_patient_profile"
         tools:layout="@layout/fragment_patient_profile" />
+    <fragment
+        android:id="@+id/allInquiriesFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.inquiries.AllInquiriesFragment"
+        android:label="fragment_all_inquiries"
+        tools:layout="@layout/fragment_all_inquiries" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.inquiries.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+
+        <argument
+            app:argType="string"
+            android:name="roomId"/>
+
+        <argument
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.UserModel"
+            android:name="userToSend" />
+    </fragment>
 </navigation>

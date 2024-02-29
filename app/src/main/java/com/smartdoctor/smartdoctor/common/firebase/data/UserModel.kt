@@ -1,4 +1,4 @@
-package com.donationinstitutions.donationinstitutions.common.firebase.data
+package com.smartdoctor.smartdoctor.common.firebase.data
 
 import android.net.Uri
 import android.os.Parcelable
@@ -17,13 +17,27 @@ data class UserModel(
     var userType:String?="",
     var birthDate:String?="",
     var idNumber:String?="",
-    var userState: String?=UserState.Accepted.value,
+    var userState: String?= UserState.Accepted.value,
     var bio:String?="",
     var specialization:String?="",
     var jobNumber:String?=""
 ) : Parcelable {
 
 }
+
+
+@Parcelize
+data class MessageModel(
+    val senderId :String?=null,
+    val receiverId:String?=null,
+    val message:String?=null,
+    val date:String?=null,
+    val hash:Long?=null,
+    val roomId:String?=null,
+    val senderName:String?=null,
+    val sender: UserModel?=null,
+    val receiver: UserModel?=null
+) : Parcelable
 
 
 
@@ -33,7 +47,7 @@ data class UserModel(
 @Parcelize
 data class NotificationModel(
     val hash:String?=null,
-    val fromCharity:UserModel?=null,
+    val fromCharity: UserModel?=null,
     val toUserId:String?=null,
     val amount:Double?=null,
     var read:Boolean?= false

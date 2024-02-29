@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.JobIntentService
 import androidx.core.app.NotificationCompat
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.donationinstitutions.donationinstitutions.common.showMessage
 import com.google.firebase.firestore.SetOptions
 import com.smartdoctor.smartdoctor.R

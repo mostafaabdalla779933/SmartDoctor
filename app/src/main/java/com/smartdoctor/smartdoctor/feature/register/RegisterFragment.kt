@@ -8,9 +8,9 @@ import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.base.DateFragmentForBirth
 import com.donationinstitutions.donationinstitutions.common.calculateAge
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserState
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserType
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserState
+import com.smartdoctor.smartdoctor.common.firebase.data.UserType
 import com.donationinstitutions.donationinstitutions.common.getString
 import com.donationinstitutions.donationinstitutions.common.isStringEmpty
 import com.donationinstitutions.donationinstitutions.common.isValidEmail

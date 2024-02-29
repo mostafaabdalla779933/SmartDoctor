@@ -16,7 +16,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp.MESSAGE
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp.RELOAD
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.donationinstitutions.donationinstitutions.common.showMessage
 import com.google.firebase.firestore.SetOptions
 import com.smartdoctor.smartdoctor.R

@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.databinding.ItemDoctorBinding
 
 
 class DoctorsAdapter(
     val onItemClicked: (UserModel) -> Unit,
     val onEditClicked: (UserModel) -> Unit,
-    val onDeleteClicked: (UserModel,Int) -> Unit
+    val onDeleteClicked: (UserModel, Int) -> Unit
 ) :
     ListAdapter<UserModel, DoctorsAdapter.ViewHolder>(
         UserDiffCallback()

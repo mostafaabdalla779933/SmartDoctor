@@ -4,8 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.util.Log
 import android.webkit.MimeTypeMap
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel
-import com.google.android.gms.tasks.OnCompleteListener
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
@@ -25,12 +24,17 @@ object FirebaseHelp {
     const val MESSAGE = "message"
     const val RELOAD = "reload"
     const val USERS = "all_users"
-    const val DONATION = "DONATION"
+    const val Messages = "Messages"
     const val EFFORT = "EFFORT"
     const val COUNT = "COUNT"
     const val NOTIFICATION = "NOTIFICATION"
 
     fun getUserID() = auth.currentUser?.uid ?: ""
+
+
+    fun getRoomID(doctorID:String="",patientID:String="") : String{
+        return doctorID + patientID
+    }
 
     fun uploadImageToCloudStorage(context: Context, imageFileUri: Uri, imageType: String,onSuccess :(String)->Unit,onFailure :(Exception)-> Unit){
 
@@ -147,6 +151,24 @@ object FirebaseHelp {
             onSuccess()
         }.addOnFailureListener { // Uh-oh, an error occurred!
             onFailure(it)
+        }
+    }
+
+    inline fun <reified T> getAllObjectsCondition(
+        collection: String,
+        key:String,
+        value:String,
+        crossinline onSuccess: (MutableList<T>) -> Unit,
+        crossinline onFailure: (String) -> Unit
+    ) {
+        fireStore.collection(collection).whereEqualTo(key,value).get().addOnSuccessListener { documents ->
+            val list = mutableListOf<T>()
+            documents.forEach { document ->
+                list.add(document.toObject(T::class.java))
+            }
+            onSuccess(list)
+        }.addOnFailureListener { e ->
+            onFailure(e.localizedMessage ?: "something wrong")
         }
     }
 

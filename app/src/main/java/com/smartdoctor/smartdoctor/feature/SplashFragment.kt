@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserState
-import com.donationinstitutions.donationinstitutions.common.firebase.data.UserType
+import com.smartdoctor.smartdoctor.common.firebase.data.UserState
+import com.smartdoctor.smartdoctor.common.firebase.data.UserType
 import com.smartdoctor.smartdoctor.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
