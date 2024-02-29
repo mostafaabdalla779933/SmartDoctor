@@ -200,7 +200,7 @@
         tools:layout="@layout/fragment_doctor_profile" >
         <argument
             android:name="doctor"
-            app:argType="com.donationinstitutions.donationinstitutions.common.firebase.data.UserModel" />
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.UserModel" />
     </fragment>
     <fragment
         android:id="@+id/allInquiriesFragment"
