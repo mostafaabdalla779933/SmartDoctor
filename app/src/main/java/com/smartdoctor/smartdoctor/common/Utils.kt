@@ -25,6 +25,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.google.android.material.textfield.TextInputEditText
 import com.smartdoctor.smartdoctor.R
 import java.math.RoundingMode
@@ -291,6 +292,15 @@ fun NavController.navigateWithAnimation(@IdRes resId: Int,bundle: Bundle = bundl
             .setPopExitAnim(R.anim.slide_out_right)
             .build()
     )
+}
+
+
+fun getLoading(context: Context): CircularProgressDrawable {
+    val circularProgressDrawable = CircularProgressDrawable(context)
+    circularProgressDrawable.strokeWidth = 5f
+    circularProgressDrawable.centerRadius = 30f
+    circularProgressDrawable.start()
+    return circularProgressDrawable
 }
 
 

@@ -1,14 +1,26 @@
 package com.smartdoctor.smartdoctor.feature.inquiries
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
+import com.donationinstitutions.donationinstitutions.common.getLoading
 import com.donationinstitutions.donationinstitutions.common.getString
 import com.smartdoctor.smartdoctor.common.firebase.data.MessageModel
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
@@ -28,9 +40,15 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
 
     override fun onFragmentCreated() {
         viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
-
         bindView()
         getMessages()
+
+        UploadImageService.liveData.observe(viewLifecycleOwner){ url->
+            url?.let {
+               addImage(url)
+               UploadImageService.liveData.postValue(null)
+            }
+        }
 
     }
 
@@ -62,29 +80,62 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
                     )
                 }
             }
+
+            btnSendImage.setOnClickListener {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                    chooseUserPhotoFromGallery33()
+                }else{
+                    chooseUserPhotoFromGallery()
+                }
+            }
         }
 
 
         viewModel.messagesLiveData.observe(viewLifecycleOwner){
-            adapter.list = it.toMutableList()
-            adapter.notifyDataSetChanged()
+            if(adapter.list != it.toMutableList()) {
+                adapter.list = it.toMutableList()
+                adapter.notifyDataSetChanged()
+            }
         }
 
     }
 
+
+    private fun addImage(url:String){
+        addMessage(
+            MessageModel(
+                senderId = FirebaseHelp.getUserID(),
+                receiverId = args.userToSend.userId,
+                message = null,
+                url = url,
+                hash = System.currentTimeMillis(),
+                roomId = args.roomId,
+                date = SimpleDateFormat("hh:mm:a dd MMM yyyy").format(Date(System.currentTimeMillis())),
+                senderName = FirebaseHelp.user?.name,
+                sender = FirebaseHelp.user,
+                receiver = args.userToSend,
+            )
+        )
+    }
+
+
     private fun addMessage(messageModel: MessageModel) {
+        binding.btnSend.isEnabled = false
 
         FirebaseHelp.addObject<MessageModel>(
             messageModel,
             FirebaseHelp.Messages,
             messageModel.hash?.toString() ?: "",
             {
-//                adapter.list.add(0, messageModel)
-//                adapter.notifyItemRangeInserted(0, 1)
-//                binding.rv.smoothScrollToPosition(0)
+                binding.btnSend.isEnabled = true
+                try {
+                    binding.rv.smoothScrollToPosition(0)
+                } catch (_:Exception){}
+
                 binding.etMessage.setText("")
             },
             {
+                binding.btnSend.isEnabled = true
                 showMessage(it)
             })
     }
@@ -108,6 +159,92 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
             })
     }
 
+
+    @SuppressLint("InlinedApi")
+    private fun chooseUserPhotoFromGallery33() {
+        try {
+            if (ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.READ_MEDIA_IMAGES
+                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED) {
+
+                requestMultiplePermissions.launch(
+                    arrayOf(
+                        Manifest.permission.READ_MEDIA_IMAGES
+                    )
+                )
+            } else {
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+                startForGallery.launch(intent)
+            }
+        } catch (e: Exception) {
+            showErrorMsg("something went wrong")
+        }
+    }
+
+
+    private fun chooseUserPhotoFromGallery() {
+        try {
+            if (ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED) {
+
+                requestMultiplePermissions.launch(
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    )
+                )
+            } else {
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+                startForGallery.launch(intent)
+            }
+        } catch (e: Exception) {
+            showErrorMsg("something went wrong")
+        }
+    }
+
+
+    private val requestMultiplePermissions =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            var accept = false
+            permissions.entries.forEach {
+                accept = it.value
+            }
+            if (accept) {
+                startForGallery.launch(
+                    Intent(
+                        Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    )
+                )
+            } else {
+                showErrorMsg("permission denied")
+            }
+        }
+
+
+    private val startForGallery =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.data?.let { uri ->
+                    val intent = Intent(requireContext(),UploadImageService::class.java)
+                    intent.putExtra(FirebaseHelp.Image,uri)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        requireContext().startForegroundService(intent);
+                    } else {
+                        requireContext().startService(intent);
+                    }
+                    showMessage("uploading your image")
+                }
+            }
+        }
+
 }
 
 
@@ -116,22 +253,44 @@ class ChatAdapter(var list:MutableList<MessageModel?>, var userId:String):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class SenderViewHolder(private val rowView: ItemSenderBinding): RecyclerView.ViewHolder(rowView.root){
-        fun onBind(item: MessageModel?, position: Int){
+        fun onBind(item: MessageModel, position: Int){
             rowView.apply {
-                tvMessage.text = item?.message
-                tvDate.text = item?.date
-                Glide.with(root.context).load(FirebaseHelp.user?.profileUrl).into(img)
+                tvMessage.text = item.message
+                tvDate.text = item.date
+                Glide.with(root.context).load(item.sender?.profileUrl).into(img)
+                Glide.with(root.context).load(item.url).placeholder(getLoading(itemView.context)).into(image)
+                when (item.message) {
+                    null, "" -> {
+                        image.visibility = View.VISIBLE
+                        tvMessage.visibility = View.GONE
+                    }
+                    else -> {
+                        image.visibility = View.GONE
+                        tvMessage.visibility = View.VISIBLE
+                    }
+                }
             }
         }
     }
 
 
     inner class ReceivedViewHolder(private val rowView: ItemRecievedBinding): RecyclerView.ViewHolder(rowView.root){
-        fun onBind(item: MessageModel?, position: Int){
+        fun onBind(item: MessageModel, position: Int){
             rowView.apply {
-                tvMessage.text = item?.message
-                tvDate.text = item?.date
-                Glide.with(root.context).load(item?.sender?.profileUrl).into(img)
+                tvMessage.text = item.message
+                tvDate.text = item.date
+                Glide.with(root.context).load(item.sender?.profileUrl).into(img)
+                Glide.with(root.context).load(item.url).placeholder(getLoading(itemView.context)).into(image)
+                when (item.message) {
+                    null, "" -> {
+                        image.visibility = View.VISIBLE
+                        tvMessage.visibility = View.GONE
+                    }
+                    else -> {
+                        image.visibility = View.GONE
+                        tvMessage.visibility = View.VISIBLE
+                    }
+                }
             }
         }
     }
@@ -162,10 +321,10 @@ class ChatAdapter(var list:MutableList<MessageModel?>, var userId:String):
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is SenderViewHolder ->{
-                holder.onBind(list[position],position)
+                list.getOrNull(position)?.let { holder.onBind(it,position) }
             }
             is ReceivedViewHolder ->{
-                holder.onBind(list[position],position)
+                list.getOrNull(position)?.let { holder.onBind(it,position) }
             }
         }
     }

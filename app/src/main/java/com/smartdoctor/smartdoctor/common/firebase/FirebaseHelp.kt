@@ -25,7 +25,7 @@ object FirebaseHelp {
     const val RELOAD = "reload"
     const val USERS = "all_users"
     const val Messages = "Messages"
-    const val EFFORT = "EFFORT"
+    const val Image = "Image"
     const val COUNT = "COUNT"
     const val NOTIFICATION = "NOTIFICATION"
 

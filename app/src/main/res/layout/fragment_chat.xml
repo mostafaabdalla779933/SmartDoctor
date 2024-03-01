@@ -23,10 +23,27 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/layout"
+        app:layout_constraintBottom_toTopOf="@id/btnSendImage"
         app:layout_constraintTop_toBottomOf="@id/tb"
         app:reverseLayout="true"
         tools:listitem="@layout/item_recieved" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/icon_camera"
+        android:text="Send image"
+        android:id="@+id/btnSendImage"
+        style="@style/myMaterialButtonSend"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:iconTint="@color/black"
+        app:strokeColor="@color/transparent"
+        app:layout_constraintBottom_toTopOf="@id/layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
     <androidx.appcompat.widget.LinearLayoutCompat

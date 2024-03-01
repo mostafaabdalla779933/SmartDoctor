@@ -31,6 +31,7 @@ data class MessageModel(
     val senderId :String?=null,
     val receiverId:String?=null,
     val message:String?=null,
+    val url:String?=null,
     val date:String?=null,
     val hash:Long?=null,
     val roomId:String?=null,

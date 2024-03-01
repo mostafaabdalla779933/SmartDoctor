@@ -16,24 +16,42 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    
-    
-    <TextView
+
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/img"
-        android:id="@+id/tvMessage"
-        android:background="@drawable/bg_chat_left"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/black"
-        tools:text="Hello Fawaz Aldosari \n mostafa  \n mostafa"
-        android:paddingHorizontal="15dp"
-        android:textSize="14sp"
+        android:id="@+id/layout"
+        android:orientation="vertical"
         android:layout_marginEnd="16dp"
-        android:paddingVertical="11dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp"
-        />
+        android:layout_marginStart="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="11dp"
+            android:id="@+id/tvMessage"
+            android:background="@drawable/bg_chat_left"
+            android:textColor="@color/black"
+            tools:text="Hello Fawaz Aldosari \n mostafa  \n mostafa"
+            android:textSize="14sp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/image"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            tools:src="@drawable/icon_send"
+            app:shapeAppearance="@style/RoundedImageView.20dp"
+            android:background="#D0CEE6"
+            />
+
+    </LinearLayout>
+    
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,8 +59,8 @@
         android:textSize="11sp"
         android:id="@+id/tvDate"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage"
-        app:layout_constraintStart_toStartOf="@id/tvMessage"
+        app:layout_constraintTop_toBottomOf="@id/layout"
+        app:layout_constraintStart_toStartOf="@id/layout"
         tools:text="04:28PM 10 Sep 2022" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

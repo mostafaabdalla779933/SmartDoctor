@@ -30,6 +30,10 @@
         <item name="backgroundTint">#213B85</item>
     </style>
 
+    <style name="myMaterialButtonSend" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">#B9D35E</item>
+    </style>
+
 
     <style name="DialogStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
@@ -71,6 +75,11 @@
     <style name="RoundedImageView.10dp" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="RoundedImageView.20dp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
     </style>
 
     <style name="RoundedImageView.5p" parent="">
