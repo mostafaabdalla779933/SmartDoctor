@@ -6,7 +6,7 @@ import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserState
 import com.smartdoctor.smartdoctor.common.firebase.data.UserType
-import com.donationinstitutions.donationinstitutions.common.showMessage
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.databinding.FragmentDoctorsBinding
 
 class DoctorsFragment : BaseFragment<FragmentDoctorsBinding>() {

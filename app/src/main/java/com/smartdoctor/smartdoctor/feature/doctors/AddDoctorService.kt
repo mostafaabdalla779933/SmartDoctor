@@ -17,7 +17,7 @@ import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHel
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp.MESSAGE
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp.RELOAD
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
-import com.donationinstitutions.donationinstitutions.common.showMessage
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.google.firebase.firestore.SetOptions
 import com.smartdoctor.smartdoctor.R
 

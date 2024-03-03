@@ -5,7 +5,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.navigateWithAnimation
+import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.databinding.FragmentDoctorProfileBinding

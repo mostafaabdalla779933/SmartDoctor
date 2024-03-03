@@ -1,4 +1,4 @@
-package com.donationinstitutions.donationinstitutions.common
+package com.smartdoctor.smartdoctor.common
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -11,6 +11,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.media.ExifInterface
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,12 +21,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.IdRes
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.google.android.material.textfield.TextInputEditText
 import com.smartdoctor.smartdoctor.R
 import java.math.RoundingMode

@@ -64,6 +64,30 @@ enum class UserState(val value:String){
     Pending("Pending"),Accepted("Accepted"),Rejected("Rejected"),Deleted("Deleted")
 }
 
+@Parcelize
+data class DiseaseModel(
+    var uri: Uri?=null,
+    var profileUrl:String? ="",
+    var name:String? ="",
+    var questions :List<QuestionModel>? = null,
+    var diagnoses :List<DiagnoseModel>? = null,
+    var treatments :List<String>? = null,
+    var mobile: String? = "",
+    var hash:String?="",
+) : Parcelable
+
+@Parcelize
+data class QuestionModel(
+    val question: String? = "",
+    val answer: Boolean?
+) : Parcelable
+
+@Parcelize
+data class DiagnoseModel(
+    val numberOfQuestion: Int? = 0,
+    val name: String? = ""
+) : Parcelable
+
 
 @Parcelize
 data class ProductModel(

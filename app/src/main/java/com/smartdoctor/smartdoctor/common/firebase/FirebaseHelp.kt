@@ -26,6 +26,7 @@ object FirebaseHelp {
     const val USERS = "all_users"
     const val Messages = "Messages"
     const val Image = "Image"
+    const val DISEASE = "all_disease"
     const val COUNT = "COUNT"
     const val NOTIFICATION = "NOTIFICATION"
 

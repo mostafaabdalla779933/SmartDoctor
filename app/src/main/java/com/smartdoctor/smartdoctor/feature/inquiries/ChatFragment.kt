@@ -20,8 +20,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.getLoading
-import com.donationinstitutions.donationinstitutions.common.getString
+import com.smartdoctor.smartdoctor.common.getLoading
+import com.smartdoctor.smartdoctor.common.getString
 import com.smartdoctor.smartdoctor.common.firebase.data.MessageModel
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.databinding.FragmentChatBinding

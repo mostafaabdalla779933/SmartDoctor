@@ -226,4 +226,14 @@
         android:name="com.smartdoctor.smartdoctor.feature.diseases.PatientDiseasesFragment"
         android:label="fragment_patient_diseases"
         tools:layout="@layout/fragment_patient_diseases" />
+    <fragment
+        android:id="@+id/addSymptomsFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.add_symptoms.AddSymptomsFragment"
+        android:label="fragment_add_symptoms"
+        tools:layout="@layout/fragment_add_symptoms" />
+    <fragment
+        android:id="@+id/healthCenterAllDiseasesFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.diseases.HealthCenterAllDiseasesFragment"
+        android:label="fragment_health_center_all_diseases"
+        tools:layout="@layout/fragment_health_center_all_diseases" />
 </navigation>

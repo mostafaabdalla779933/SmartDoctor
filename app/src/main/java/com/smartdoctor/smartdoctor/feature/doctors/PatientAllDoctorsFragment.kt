@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.navigateWithAnimation
-import com.donationinstitutions.donationinstitutions.common.showMessage
+import com.smartdoctor.smartdoctor.common.navigateWithAnimation
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel

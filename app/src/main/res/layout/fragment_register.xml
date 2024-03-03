@@ -212,6 +212,7 @@
             android:layout_marginTop="15dp"
             style="@style/roundedButton"
             android:text="Sign Up"
+            android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
             android:textSize="18sp"
             app:cornerRadius="4dp"

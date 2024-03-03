@@ -21,11 +21,11 @@ import com.donationinstitutions.donationinstitutions.common.base.DateFragmentFor
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserType
-import com.donationinstitutions.donationinstitutions.common.getString
-import com.donationinstitutions.donationinstitutions.common.isStringEmpty
-import com.donationinstitutions.donationinstitutions.common.isValidEmail
-import com.donationinstitutions.donationinstitutions.common.setImageFromUri
-import com.donationinstitutions.donationinstitutions.common.showMessage
+import com.smartdoctor.smartdoctor.common.getString
+import com.smartdoctor.smartdoctor.common.isStringEmpty
+import com.smartdoctor.smartdoctor.common.isValidEmail
+import com.smartdoctor.smartdoctor.common.setImageFromUri
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.databinding.FragmentAddDoctorBinding
 import java.text.SimpleDateFormat

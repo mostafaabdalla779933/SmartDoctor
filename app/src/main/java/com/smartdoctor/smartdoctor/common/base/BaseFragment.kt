@@ -16,7 +16,7 @@ import com.donationinstitutions.donationinstitutions.common.base.BaseView
 import com.donationinstitutions.donationinstitutions.common.base.ProgressDialog
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.google.android.material.snackbar.Snackbar
-import com.donationinstitutions.donationinstitutions.common.showMessage
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.databinding.SnackBarBinding
 

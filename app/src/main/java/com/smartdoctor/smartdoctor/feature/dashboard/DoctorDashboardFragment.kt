@@ -3,7 +3,7 @@ package com.smartdoctor.smartdoctor.feature.dashboard
 import androidx.navigation.fragment.findNavController
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.donationinstitutions.donationinstitutions.common.navigateWithAnimation
+import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.databinding.FragmentDoctorDashboardBinding
 

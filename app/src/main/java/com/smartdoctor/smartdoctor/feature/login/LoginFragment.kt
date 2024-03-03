@@ -5,8 +5,8 @@ import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.common.firebase.data.UserState
 import com.smartdoctor.smartdoctor.common.firebase.data.UserType
-import com.donationinstitutions.donationinstitutions.common.getString
-import com.donationinstitutions.donationinstitutions.common.isStringEmpty
+import com.smartdoctor.smartdoctor.common.getString
+import com.smartdoctor.smartdoctor.common.isStringEmpty
 import com.smartdoctor.smartdoctor.databinding.FragmentLoginBinding
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
