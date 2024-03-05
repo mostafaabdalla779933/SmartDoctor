@@ -4,7 +4,9 @@ import com.donationinstitutions.donationinstitutions.common.base.BaseFragmentDia
 import com.smartdoctor.smartdoctor.databinding.FragmentDiseaseDialogBinding
 
 class DiseaseDialogFragment : BaseFragmentDialog<FragmentDiseaseDialogBinding>() {
+
     override fun initBinding() = FragmentDiseaseDialogBinding.inflate(layoutInflater)
+
     override fun onDialogCreated() {
     }
 
