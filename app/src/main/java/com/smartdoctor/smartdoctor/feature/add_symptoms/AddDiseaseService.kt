@@ -10,6 +10,7 @@ import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.JobIntentService
 import androidx.core.app.NotificationCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.common.showMessage
@@ -117,6 +118,10 @@ class AddDiseaseService : JobIntentService() {
                 SystemClock.sleep(1000)
                 if (progress < 80 || (progress >= 80 && isFinished))
                     progress += 20
+            }
+            Intent("custom-event-name").also {
+                it.putExtra(FirebaseHelp.MESSAGE, FirebaseHelp.RELOAD)
+                LocalBroadcastManager.getInstance(this).sendBroadcast(it);
             }
             if (isFailed) {
                 notificationBuilder.setContentText("upload failed")

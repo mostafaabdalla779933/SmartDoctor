@@ -58,6 +58,10 @@ class AddSymptomsFragment : BaseFragment<FragmentAddSymptomsBinding>() {
                 }
             }
 
+            tb.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+
             btnInquiry.setOnClickListener {
                 when {
                     etQuestions.isStringEmpty() -> {

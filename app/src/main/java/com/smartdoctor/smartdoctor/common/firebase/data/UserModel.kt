@@ -66,20 +66,20 @@ enum class UserState(val value:String){
 
 @Parcelize
 data class DiseaseModel(
-    var uri: Uri?=null,
-    var profileUrl:String? ="",
-    var name:String? ="",
-    var questions :List<QuestionModel>? = null,
-    var diagnoses :List<DiagnoseModel>? = null,
-    var treatments :List<String>? = null,
+    var uri: Uri? = null,
+    var profileUrl: String? = "",
+    var name: String? = "",
+    var questions: MutableList<QuestionModel>? = mutableListOf(),
+    var diagnoses: MutableList<DiagnoseModel>? = mutableListOf(),
+    var treatments: MutableList<String>? = mutableListOf(),
     var mobile: String? = "",
-    var hash:String?="",
+    var hash: String? = "",
 ) : Parcelable
 
 @Parcelize
 data class QuestionModel(
     val question: String? = "",
-    val answer: Boolean?
+    val answer: Boolean? = false
 ) : Parcelable
 
 @Parcelize

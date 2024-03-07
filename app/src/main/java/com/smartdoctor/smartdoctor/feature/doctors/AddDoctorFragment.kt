@@ -67,6 +67,10 @@ class AddDoctorFragment : BaseFragment<FragmentAddDoctorBinding>(), DatePickerDi
                 validate()
             }
 
+            tb.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+
         }
 
         getData()
