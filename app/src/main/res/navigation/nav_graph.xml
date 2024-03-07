@@ -236,4 +236,26 @@
         android:name="com.smartdoctor.smartdoctor.feature.diseases.HealthCenterAllDiseasesFragment"
         android:label="fragment_health_center_all_diseases"
         tools:layout="@layout/fragment_health_center_all_diseases" />
+    <fragment
+        android:id="@+id/scanDiseaseFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.diseases.ScanDiseaseFragment"
+        android:label="fragment_scan_disease"
+        tools:layout="@layout/fragment_scan_disease" >
+        <argument
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"
+            android:name="disease" />
+    </fragment>
+    <dialog
+        android:id="@+id/diseaseDialogFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.disease_dialog.DiseaseDialogFragment"
+        android:label="fragment_disease_dialog"
+        tools:layout="@layout/fragment_disease_dialog" >
+
+        <argument
+            app:argType="boolean"
+            android:name="flag"/>
+        <argument
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"
+            android:name="disease" />
+    </dialog>
 </navigation>

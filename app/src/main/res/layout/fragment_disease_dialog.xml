@@ -1,76 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="2dp"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:paddingHorizontal="16dp"
-    tools:context=".feature.disease_dialog.DiseaseDialogFragment">
+    app:cardCornerRadius="15dp"
+    app:strokeColor="#707070"
+    app:strokeWidth="2dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_disease"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:src="@color/light_blue_600"
-        app:shapeAppearance="@style/circleImageView" />
-
-    <TextView
-        android:id="@+id/tv_disease_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_regular"
-        tools:text="You are suffering from"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="#B9D35E"
-        android:textSize="25sp"
-        tools:text="Diseases 1" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="You should follow these:"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_instructions"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_instructions" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        tools:context=".feature.disease_dialog.DiseaseDialogFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_home"
-        style="@style/roundedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginVertical="24dp"
-        android:fontFamily="@font/poppins_bold"
-        android:paddingHorizontal="50dp"
-        android:paddingVertical="12dp"
-        android:text="Back to home"
-        android:textSize="16sp"
-        app:cornerRadius="4dp" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_disease"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:src="@color/light_blue_600"
+            app:shapeAppearance="@style/circleImageView" />
+
+        <TextView
+            android:id="@+id/tv_disease_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="You are suffering from" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="#B9D35E"
+            android:textSize="25sp"
+            tools:text="Diseases 1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="You should follow these:"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbarSize="1dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_instructions" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_home"
+            style="@style/roundedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="12dp"
+            android:text="Back to home"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="4dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.google.android.material.card.MaterialCardView>

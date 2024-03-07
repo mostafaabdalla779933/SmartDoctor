@@ -1,16 +1,19 @@
 package com.smartdoctor.smartdoctor.feature.diseases
 
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
+import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel
+import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.databinding.FragmentPatientDiseasesBinding
 
 class PatientDiseasesFragment : BaseFragment<FragmentPatientDiseasesBinding>() {
 
     private val adapter by lazy {
         DiseasesAdapter(list = mutableListOf(), onItemClick = { disease ->
-
+            findNavController().navigateWithAnimation(R.id.scanDiseaseFragment, bundleOf("disease" to disease))
         }, onDeleteClicked = { disease ->
         })
     }

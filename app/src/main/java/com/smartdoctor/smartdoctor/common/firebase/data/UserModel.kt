@@ -78,14 +78,14 @@ data class DiseaseModel(
 
 @Parcelize
 data class QuestionModel(
-    val question: String? = "",
-    val answer: Boolean? = false
+    var question: String? = "",
+    var answer: Boolean? = false
 ) : Parcelable
 
 @Parcelize
 data class DiagnoseModel(
-    val numberOfQuestion: Int? = 0,
-    val name: String? = ""
+    var numberOfQuestion: Int? = 0,
+    var name: String? = ""
 ) : Parcelable
 
 

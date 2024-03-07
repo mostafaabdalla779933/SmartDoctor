@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/transparent"
+    android:layout_marginHorizontal="10dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:id="@+id/tvQuestion"
+        tools:text="1. Do you have a headache?"
+        android:textColor="@color/black"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/primary_color"
+        android:textColor="@color/black"
+        android:checked="false"
+        android:padding="4dp"
+        android:text="yes"
+        android:textSize="16sp" />
+
+    <RadioButton
+        android:id="@+id/no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/primary_color"
+        android:textColor="@color/black"
+        android:checked="false"
+        android:padding="4dp"
+        android:text="no"
+        android:layout_marginStart="15dp"
+        android:textSize="16sp" />
+    </RadioGroup>
+</androidx.appcompat.widget.LinearLayoutCompat>
