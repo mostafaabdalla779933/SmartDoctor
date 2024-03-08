@@ -8,6 +8,7 @@ import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHel
 import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.getDayMonthAndYear
 import com.smartdoctor.smartdoctor.databinding.FragmentDoctorProfileBinding
 
 class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
@@ -46,7 +47,7 @@ class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
                 tvJobNumber.text = jobNumber
                 tvSpecialization.text = specialization
                 tvEmail.text = email
-                tvBirthDate.text = birthDate
+                tvBirthDate.text = birthDate?.getDayMonthAndYear()
                 Glide.with(requireContext()).load(profileUrl).into(ivDoctor)
             }
         }

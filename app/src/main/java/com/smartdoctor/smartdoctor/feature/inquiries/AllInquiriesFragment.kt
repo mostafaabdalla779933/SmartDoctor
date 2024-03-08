@@ -89,7 +89,7 @@ class MessagesAdapter(
                 }
                 tvUsername.text =
                     if (item.sender?.userId == FirebaseHelp.getUserID()) item.receiver?.name else item.sender?.name
-                tvMessage.text = item.message
+                tvMessage.text = item.message ?: (if(item.url!= null) "image" else "")
                 tvMessageDate.text = item.date
             }
         }

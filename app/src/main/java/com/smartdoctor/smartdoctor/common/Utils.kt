@@ -302,5 +302,36 @@ fun getLoading(context: Context): CircularProgressDrawable {
     return circularProgressDrawable
 }
 
+fun String.getDayMonthAndYear(): String {
+    return try {
+        val inputFormat = SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy", Locale.US)
+        val outputFormat = SimpleDateFormat("d MMM yyyy", Locale.US)
+        outputFormat.format(inputFormat.parse(this))
+    }catch (e:Exception){
+        ""
+    }
+
+}
+
+fun String.getMonth(): String {
+    val inputFormat = SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy", Locale.US)
+    val outputFormat = SimpleDateFormat("MMM", Locale.US)
+    return outputFormat.format(inputFormat.parse(this))
+}
+
+
+fun String.getMonthAndYear(): String {
+    val inputFormat = SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy", Locale.US)
+    val outputFormat = SimpleDateFormat("MMM yyyy", Locale.US)
+    return outputFormat.format(inputFormat.parse(this))
+}
+
+
+fun String.getTime(): String {
+    val inputFormat = SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy", Locale.US)
+    val outputFormat = SimpleDateFormat("hh:mm a", Locale.US)
+    return outputFormat.format(inputFormat.parse(this))
+}
+
 
 

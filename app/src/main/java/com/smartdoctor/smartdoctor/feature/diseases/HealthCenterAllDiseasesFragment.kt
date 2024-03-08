@@ -3,6 +3,7 @@ package com.smartdoctor.smartdoctor.feature.diseases
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -21,7 +22,11 @@ class HealthCenterAllDiseasesFragment : BaseFragment<FragmentHealthCenterAllDise
 
     private val adapter by lazy {
         DiseasesAdapter(list = mutableListOf(), onItemClick = { disease ->
-
+            findNavController().navigateWithAnimation(R.id.healthCenterDiseaseDetailsFragment,
+                bundleOf(
+                    "disease" to disease
+                )
+            )
         }, onDeleteClicked = { disease ->
             deleteItem(disease)
         })

@@ -258,4 +258,15 @@
             app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"
             android:name="disease" />
     </dialog>
+    <fragment
+        android:id="@+id/healthCenterDiseaseDetailsFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.diseases.HealthCenterDiseaseDetailsFragment"
+        android:label="fragment_health_center_disease_details"
+        tools:layout="@layout/fragment_health_center_disease_details" >
+
+        <argument
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"
+            android:name="disease" />
+    </fragment>
+
 </navigation>
