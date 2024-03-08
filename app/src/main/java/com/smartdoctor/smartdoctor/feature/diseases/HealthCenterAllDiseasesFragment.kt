@@ -16,7 +16,6 @@ import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.databinding.FragmentHealthCenterAllDiseasesBinding
 import com.smartdoctor.smartdoctor.databinding.ItemHealthCenterDiseaseBinding
 
-
 class HealthCenterAllDiseasesFragment : BaseFragment<FragmentHealthCenterAllDiseasesBinding>() {
 
 
