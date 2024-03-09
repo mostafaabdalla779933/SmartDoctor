@@ -273,7 +273,11 @@
         android:id="@+id/transferInquiryFragment"
         android:name="com.smartdoctor.smartdoctor.feature.inquiries.TransferInquiryFragment"
         android:label="fragment_transfer_inquiry"
-        tools:layout="@layout/fragment_transfer_inquiry" />
+        tools:layout="@layout/fragment_transfer_inquiry" >
+        <argument
+            app:argType="com.smartdoctor.smartdoctor.common.firebase.data.UserModel"
+            android:name="patient" />
+    </dialog>
     <fragment
         android:id="@+id/allSpecialtiesFragment"
         android:name="com.smartdoctor.smartdoctor.feature.specialties.AllSpecialtiesFragment"

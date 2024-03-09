@@ -54,10 +54,11 @@ data class MessageModel(
 
 @Parcelize
 data class NotificationModel(
-    val hash:String?=null,
-    val fromCharity: UserModel?=null,
-    val toUserId:String?=null,
-    val amount:Double?=null,
+    val hash:String?="",
+    val date: String? = "",
+    val fromDoctor: UserModel?=null,
+    val toUserPatient:UserModel?=null,
+    val toUserDoctor:UserModel?=null,
     var read:Boolean?= false
 ) : Parcelable
 

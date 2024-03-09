@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -64,7 +65,9 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
         binding.tb.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.resent -> {
-                    findNavController().navigate(R.id.transferInquiryFragment)
+                    findNavController().navigate(R.id.transferInquiryFragment, bundleOf(
+                        "patient" to args.userToSend
+                    ))
                     true
                 }
 
