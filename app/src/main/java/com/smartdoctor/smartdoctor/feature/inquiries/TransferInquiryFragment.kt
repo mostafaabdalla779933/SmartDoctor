@@ -80,10 +80,16 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
         showLoading()
         FirebaseHelp.getAllObjects<UserModel>(FirebaseHelp.USERS, {
             hideLoading()
+            val list  = it.filter { e -> e.userId != FirebaseHelp.user?.userId && e.userState == UserState.Accepted.value && e.userType == UserType.Doctor.value }
+                .toMutableList()
+            if(list.isEmpty()){
+                requireContext().showMessage("there is no doctors")
+                findNavController().popBackStack()
+                return@getAllObjects
+            }
             doctorsAdapter = DoctorsAdapter(
                 requireContext(),
-                it.filter { e -> e.userId != FirebaseHelp.user?.userId && e.userState == UserState.Accepted.value && FirebaseHelp.user?.userType == UserType.Doctor.value }
-                    .toMutableList()
+                list
             )
 
             binding.spinnerDoctor.adapter = doctorsAdapter

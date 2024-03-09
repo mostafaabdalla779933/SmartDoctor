@@ -3,6 +3,7 @@ package com.smartdoctor.smartdoctor.feature.diseases
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
@@ -12,8 +13,6 @@ import com.smartdoctor.smartdoctor.databinding.FragmentHealthCenterDiseaseDetail
 import com.smartdoctor.smartdoctor.databinding.ItemDiseaseBinding
 import com.smartdoctor.smartdoctor.databinding.ItemHealthSymptomBinding
 import com.smartdoctor.smartdoctor.databinding.ItemInstructionsBinding
-import com.smartdoctor.smartdoctor.databinding.ItemSymptomQuestionBinding
-import com.smartdoctor.smartdoctor.databinding.ItemTreatmentBinding
 
 class HealthCenterDiseaseDetailsFragment : BaseFragment<FragmentHealthCenterDiseaseDetailsBinding>() {
 
@@ -32,6 +31,9 @@ class HealthCenterDiseaseDetailsFragment : BaseFragment<FragmentHealthCenterDise
 
     override fun onFragmentCreated() {
         binding.apply {
+            tb.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
             tb.title = args.disease.name
             rvSymptoms.adapter = questionsAdapter
             questionsAdapter.list = args.disease.questions ?: mutableListOf()
@@ -89,7 +91,7 @@ class DiagnosisAdapter(var list: MutableList<DiagnoseModel>) :
             rowView.apply {
                 ivDelete.visibility = View.GONE
                 tvYesNumber.text = item.numberOfQuestion.toString()
-                tvDiseaseName.text = item.name
+              //  tvDiseaseName.text = item.name
             }
         }
     }

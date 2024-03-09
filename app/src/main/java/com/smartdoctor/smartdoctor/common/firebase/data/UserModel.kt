@@ -84,8 +84,7 @@ data class QuestionModel(
 
 @Parcelize
 data class DiagnoseModel(
-    var numberOfQuestion: Int? = 0,
-    var name: String? = ""
+    var numberOfQuestion: Int? = 0
 ) : Parcelable
 
 

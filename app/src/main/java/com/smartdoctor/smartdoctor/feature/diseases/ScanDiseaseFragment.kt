@@ -39,16 +39,15 @@ class ScanDiseaseFragment : BaseFragment<FragmentScanDiseaseBinding>() {
 
                 btnConfirm.setOnClickListener {
                     when {
-
                         adapter.list.none { e -> e.answer == null }.not() -> {
                             showErrorMsg("answer all questions")
                         }
 
-                        adapter.list.filter { e -> e.answer == true }.size == 1 -> {
+                        args.disease.diagnoses?.none { e -> e.numberOfQuestion == adapter.list.filter { e -> e.answer == true }.size } == false  -> {
                             findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to true,"disease" to args.disease))
                         }
 
-                        adapter.list.filter { e -> e.answer == true }.size == 2 -> {
+                        else -> {
                             findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to false,"disease" to args.disease))
                         }
 

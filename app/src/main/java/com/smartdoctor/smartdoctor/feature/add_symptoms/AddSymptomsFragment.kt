@@ -92,14 +92,9 @@ class AddSymptomsFragment : BaseFragment<FragmentAddSymptomsBinding>() {
                         showErrorMsg("fill yes number")
                     }
 
-                    etDiseaseName.isStringEmpty() -> {
-                        showErrorMsg("fill disease name")
-                    }
-
                     else -> {
                         diagnosisAdapter.list.add(
                             DiagnoseModel(
-                                name = etDiseaseName.getString(),
                                 numberOfQuestion = etNumber.getInt()
                             )
                         )
@@ -119,7 +114,7 @@ class AddSymptomsFragment : BaseFragment<FragmentAddSymptomsBinding>() {
 
                     else -> {
                         treatmentsAdapter.list.add(
-                            "${treatmentsAdapter.list.size + 1}) ${etTreatment.getString()}"
+                            etTreatment.getString()
                         )
                         treatmentsAdapter.notifyDataSetChanged()
                         etTreatment.setText("")
@@ -319,7 +314,7 @@ class DiagnosisAdapter(var list: MutableList<DiagnoseModel>) :
         fun onBind(item: DiagnoseModel) {
             rowView.apply {
                 tvYesNumber.text = item.numberOfQuestion.toString()
-                tvDiseaseName.text = item.name
+              //  tvDiseaseName.text = item.name
                 ivDelete.setOnClickListener {
                     list.removeAt(layoutPosition)
                     notifyDataSetChanged()

@@ -24,10 +24,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         checkNotificationPermission()
     }
 
-    override fun reload() {
-
-    }
-
     private fun navigate() {
 
         if (FirebaseHelp.getUserID().isNotEmpty()) {
