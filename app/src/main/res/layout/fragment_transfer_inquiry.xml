@@ -1,51 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_margin="2dp"
+    android:background="@color/white"
+    app:cardCornerRadius="15dp"
+    app:strokeColor="#707070"
+    app:strokeWidth="2dp"
     tools:context=".feature.inquiries.TransferInquiryFragment">
 
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_regular"
-        android:gravity="center"
-        android:text="Transfer inquiry"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
 
-    <Spinner
-        android:id="@+id/spinner_specialization"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_tv_spinner"
-        android:popupBackground="@color/white" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="Transfer inquiry"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-    <Spinner
-        android:id="@+id/spinner_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_tv_spinner"
-        android:popupBackground="@color/white" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivClose"
+                android:src="@drawable/icons_close_"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_confirm"
-        style="@style/roundedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="24dp"
-        android:fontFamily="@font/poppins_regular"
-        android:paddingVertical="8dp"
-        android:text="Confirm"
-        android:textSize="14sp"
-        app:cornerRadius="4dp" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <Spinner
+            android:id="@+id/spinner_specialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_tv_spinner"
+            android:popupBackground="@color/white" />
+
+        <Spinner
+            android:id="@+id/spinner_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_tv_spinner"
+            android:popupBackground="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm"
+            style="@style/roundedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingVertical="8dp"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:cornerRadius="4dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.google.android.material.card.MaterialCardView>

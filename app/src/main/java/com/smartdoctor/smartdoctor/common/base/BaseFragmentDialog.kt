@@ -12,6 +12,8 @@ abstract class BaseFragmentDialog<V : ViewBinding>() : DialogFragment() {
 
     lateinit var binding: V
 
+    open lateinit var progressDialog: ProgressDialog
+
     abstract fun initBinding(): V
 
     abstract fun onDialogCreated()
@@ -20,6 +22,7 @@ abstract class BaseFragmentDialog<V : ViewBinding>() : DialogFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         binding = initBinding()
+        if (context != null) progressDialog = ProgressDialog(requireContext())
 
 
         dialog?.apply {
@@ -31,5 +34,14 @@ abstract class BaseFragmentDialog<V : ViewBinding>() : DialogFragment() {
 
         onDialogCreated()
         return binding.root
+    }
+
+
+    open fun showLoading() {
+        progressDialog.show()
+    }
+
+    open fun hideLoading() {
+        progressDialog.dismiss()
     }
 }

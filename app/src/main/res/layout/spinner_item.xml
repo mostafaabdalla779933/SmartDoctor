@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="17sp"
+    android:id="@+id/tvName"
     android:hint="Select branch"
     android:textColorHint="#213B85"
     android:paddingHorizontal="20dp"

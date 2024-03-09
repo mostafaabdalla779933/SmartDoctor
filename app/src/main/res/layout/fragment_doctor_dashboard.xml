@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/iv_notification"
             app:contentPadding="9dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/RoundedImageView.10dp" />
@@ -75,6 +76,7 @@
             android:text="Closed inquiries"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:visibility="gone"
             app:drawableStartCompat="@drawable/iv_closed_inquiries"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_inquiries" />

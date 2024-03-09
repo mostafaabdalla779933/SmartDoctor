@@ -1,5 +1,6 @@
 package com.smartdoctor.smartdoctor.feature.doctor_profile
 
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -23,12 +24,18 @@ class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
                 findNavController().popBackStack()
             }
 
+            btnLogout.setOnClickListener {
+                FirebaseHelp.logout()
+                requireActivity().finish()
+                requireActivity().startActivity(requireActivity().intent)
+            }
+
             btnInquiry.setOnClickListener {
                 findNavController().navigateWithAnimation(
                     R.id.chatFragment,
                     bundleOf(
                         "roomId" to FirebaseHelp.getRoomID(
-                            doctorID = args.doctor.userId ?: "",
+                            doctorID = args.doctor?.userId ?: "",
                             patientID = FirebaseHelp.getUserID()
                         ),
                         "userToSend" to args.doctor
@@ -41,14 +48,26 @@ class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
 
     private fun showData() {
         binding.apply {
-            args.doctor.apply {
-                tvName.text = name
-                tvBio.text = bio
-                tvJobNumber.text = jobNumber
-                tvSpecialization.text = specialization
-                tvEmail.text = email
-                tvBirthDate.text = birthDate?.getDayMonthAndYear()
-                Glide.with(requireContext()).load(profileUrl).into(ivDoctor)
+            args.doctor?.let {
+                tvName.text = it.name
+                tvBio.text = it.bio
+                tvJobNumber.text = it.jobNumber
+                tvSpecialization.text = it.specialization
+                tvEmail.text = it.email
+                tvBirthDate.text = it.birthDate?.getDayMonthAndYear()
+                Glide.with(requireContext()).load(it.profileUrl).into(ivDoctor)
+                btnLogout.visibility = View.GONE
+            } ?: kotlin.run {
+                FirebaseHelp.user?.let { user ->
+                    tvName.text = user.name
+                    tvBio.text = user.bio
+                    tvJobNumber.text = user.jobNumber
+                    tvSpecialization.text = user.specialization
+                    tvEmail.text = user.email
+                    tvBirthDate.text = user.birthDate?.getDayMonthAndYear()
+                    Glide.with(requireContext()).load(user.profileUrl).into(ivDoctor)
+                    btnInquiry.visibility = View.GONE
+                }
             }
         }
     }

@@ -200,6 +200,7 @@
         tools:layout="@layout/fragment_doctor_profile" >
         <argument
             android:name="doctor"
+            app:nullable="true"
             app:argType="com.smartdoctor.smartdoctor.common.firebase.data.UserModel" />
     </fragment>
     <fragment
@@ -268,5 +269,10 @@
             app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"
             android:name="disease" />
     </fragment>
+    <dialog
+        android:id="@+id/transferInquiryFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.inquiries.TransferInquiryFragment"
+        android:label="fragment_transfer_inquiry"
+        tools:layout="@layout/fragment_transfer_inquiry" />
 
 </navigation>

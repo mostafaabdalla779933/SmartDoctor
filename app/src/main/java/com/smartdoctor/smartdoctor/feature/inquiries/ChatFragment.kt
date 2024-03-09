@@ -20,10 +20,13 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
+import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.getLoading
 import com.smartdoctor.smartdoctor.common.getString
 import com.smartdoctor.smartdoctor.common.firebase.data.MessageModel
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.firebase.data.UserType
+import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.databinding.FragmentChatBinding
 import com.smartdoctor.smartdoctor.databinding.ItemRecievedBinding
 import com.smartdoctor.smartdoctor.databinding.ItemSenderBinding
@@ -40,6 +43,9 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
 
     override fun onFragmentCreated() {
         viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
+        if(FirebaseHelp.user?.userType == UserType.Doctor.value){
+            initMenu()
+        }
         bindView()
         getMessages()
 
@@ -50,6 +56,21 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
             }
         }
 
+    }
+
+    private fun initMenu() {
+        binding.tb.inflateMenu(R.menu.transfer)
+        setHasOptionsMenu(true)
+        binding.tb.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.resent -> {
+                    findNavController().navigate(R.id.transferInquiryFragment)
+                    true
+                }
+
+                else -> super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     private fun bindView(){

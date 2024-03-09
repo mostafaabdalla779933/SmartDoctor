@@ -1,5 +1,6 @@
 package com.smartdoctor.smartdoctor.feature.dashboard
 
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
@@ -17,9 +18,12 @@ class DoctorDashboardFragment : BaseFragment<FragmentDoctorDashboardBinding>() {
 
         binding.apply {
             ivProfile.setOnClickListener {
-                FirebaseHelp.logout()
-                requireActivity().finish()
-                requireActivity().startActivity(requireActivity().intent)
+                findNavController().navigateWithAnimation(
+                    R.id.doctorProfileFragment,
+                    bundleOf(
+                        "doctor" to null
+                    )
+                )
             }
 
             ivNotification.setOnClickListener {
