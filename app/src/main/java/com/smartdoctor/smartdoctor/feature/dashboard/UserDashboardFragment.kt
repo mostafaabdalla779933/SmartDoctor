@@ -24,7 +24,11 @@ class UserDashboardFragment : BaseFragment<FragmentUserDashboardBinding>() {
             }
 
             ivNotification.setOnClickListener {
-                findNavController().navigate(UserDashboardFragmentDirections.actionUserDashboardFragmentToNotificationFragment())
+                findNavController().navigateWithAnimation(R.id.notificationFragment)
+            }
+
+            ivMessage.setOnClickListener {
+                findNavController().navigateWithAnimation(R.id.allInquiriesFragment)
             }
 
             tvInquiries.setOnClickListener {

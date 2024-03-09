@@ -30,6 +30,12 @@ class HealthCareDashboardFragment : BaseFragment<FragmentHealthCareDashboardBind
                 )
             }
 
+            tvSpecialization.setOnClickListener {
+                findNavController().navigateWithAnimation(
+                    R.id.allSpecialtiesFragment
+                )
+            }
+
             tvDoctors.setOnClickListener {
                 findNavController().navigate(HealthCareDashboardFragmentDirections.actionHealthCareDashboardFragmentToDoctorsFragment())
             }

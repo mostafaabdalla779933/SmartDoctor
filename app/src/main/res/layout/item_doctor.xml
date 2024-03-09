@@ -24,6 +24,7 @@
             android:layout_marginTop="11dp"
             android:background="#2B2B2B26"
             android:padding="5dp"
+            android:visibility="invisible"
             android:src="@drawable/ic_edit_doctor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

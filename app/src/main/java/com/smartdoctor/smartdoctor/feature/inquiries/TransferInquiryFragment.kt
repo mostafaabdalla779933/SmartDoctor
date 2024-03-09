@@ -5,29 +5,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import androidx.navigation.fragment.findNavController
 import com.donationinstitutions.donationinstitutions.common.base.BaseFragmentDialog
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
 import com.smartdoctor.smartdoctor.R
+import com.smartdoctor.smartdoctor.common.firebase.data.SpecialtyModel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserState
 import com.smartdoctor.smartdoctor.common.firebase.data.UserType
 import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.databinding.FragmentTransferInquiryBinding
 import com.smartdoctor.smartdoctor.databinding.SpinnerItemBinding
+import com.smartdoctor.smartdoctor.feature.doctors.SpecialtiesSpinnerAdapter
 
 class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBinding>() {
 
     private var doctorsAdapter:DoctorsAdapter? = null
+    private var specialtiesAdapter: SpecialtiesSpinnerAdapter? = null
+    private var listOfSpecialties = mutableListOf<SpecialtyModel>()
+    private var listOfDoctors = mutableListOf<UserModel>()
     override fun initBinding() = FragmentTransferInquiryBinding.inflate(layoutInflater)
 
     override fun onDialogCreated() {
 
         binding.apply {
             btnConfirm.setOnClickListener {
-                findNavController().popBackStack()
+                listOfDoctors.getOrNull(spinnerDoctor.selectedItemPosition)
             }
 
             ivClose.setOnClickListener {
@@ -41,13 +45,10 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
                     position: Int,
                     id: Long
                 ) {
-//                    spinnerDoctor.adapter = ArrayAdapter(
-//                        requireContext(),
-//                        R.layout.spinner_item,
-//                        listOfDoctors
-//                            .filter { doc -> doc.specialization == it.listOfSpecialties[position].name }
-//                            .map { e -> e.name }
-//                    )
+                    listOfSpecialties.getOrNull(position)?.let { spec ->
+                        doctorsAdapter?.list = listOfDoctors.filter { e -> e.specialty?.hash == spec.hash }.toMutableList()
+                        doctorsAdapter?.notifyDataSetChanged()
+                    }
                 }
 
                 override fun onNothingSelected(parentView: AdapterView<*>?) {}
@@ -59,46 +60,56 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
                     selectedItemView: View?,
                     position: Int,
                     id: Long
-                ) {
-//                    spinnerDoctor.adapter = ArrayAdapter(
-//                        requireContext(),
-//                        R.layout.spinner_item,
-//                        listOfDoctors
-//                            .filter { doc -> doc.specialization == it.listOfSpecialties[position].name }
-//                            .map { e -> e.name }
-//                    )
-                }
-
+                ) {}
                 override fun onNothingSelected(parentView: AdapterView<*>?) {}
             }
         }
-        getData()
+        getDoctors()
     }
 
 
-    private fun getData() {
+    private fun getDoctors() {
         showLoading()
         FirebaseHelp.getAllObjects<UserModel>(FirebaseHelp.USERS, {
-            hideLoading()
             val list  = it.filter { e -> e.userId != FirebaseHelp.user?.userId && e.userState == UserState.Accepted.value && e.userType == UserType.Doctor.value }
                 .toMutableList()
+            listOfDoctors = list
             if(list.isEmpty()){
                 requireContext().showMessage("there is no doctors")
                 findNavController().popBackStack()
                 return@getAllObjects
             }
+            getSpecialties()
             doctorsAdapter = DoctorsAdapter(
                 requireContext(),
                 list
             )
-
             binding.spinnerDoctor.adapter = doctorsAdapter
 
-            binding.spinnerSpecialization.adapter = ArrayAdapter(
+        }, {
+            hideLoading()
+            findNavController().popBackStack()
+            requireContext().showMessage(it)
+        })
+    }
+
+
+    private fun getSpecialties() {
+        FirebaseHelp.getAllObjects<SpecialtyModel>(FirebaseHelp.Specialties, {
+            hideLoading()
+            if(it.isEmpty()){
+                requireContext().showMessage("there is no specialties")
+                findNavController().popBackStack()
+                return@getAllObjects
+            }
+            listOfSpecialties = it
+
+            specialtiesAdapter = SpecialtiesSpinnerAdapter(
                 requireContext(),
-                R.layout.spinner_item,
-                arrayOf("spec1","spec2")
+                it
             )
+            binding.spinnerSpecialization.adapter = specialtiesAdapter
+
         }, {
             hideLoading()
             findNavController().popBackStack()

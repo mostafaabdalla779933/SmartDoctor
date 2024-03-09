@@ -25,6 +25,17 @@
             app:shapeAppearance="@style/RoundedImageView.10dp" />
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_chat_"
+            app:contentPadding="9dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/iv_notification"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/RoundedImageView.10dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

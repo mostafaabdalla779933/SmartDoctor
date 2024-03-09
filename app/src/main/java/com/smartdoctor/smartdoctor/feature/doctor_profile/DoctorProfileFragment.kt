@@ -52,7 +52,7 @@ class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
                 tvName.text = it.name
                 tvBio.text = it.bio
                 tvJobNumber.text = it.jobNumber
-                tvSpecialization.text = it.specialization
+                tvSpecialization.text = it.specialty?.name
                 tvEmail.text = it.email
                 tvBirthDate.text = it.birthDate?.getDayMonthAndYear()
                 Glide.with(requireContext()).load(it.profileUrl).into(ivDoctor)
@@ -62,7 +62,7 @@ class DoctorProfileFragment : BaseFragment<FragmentDoctorProfileBinding>() {
                     tvName.text = user.name
                     tvBio.text = user.bio
                     tvJobNumber.text = user.jobNumber
-                    tvSpecialization.text = user.specialization
+                    tvSpecialization.text = user.specialty?.name
                     tvEmail.text = user.email
                     tvBirthDate.text = user.birthDate?.getDayMonthAndYear()
                     Glide.with(requireContext()).load(user.profileUrl).into(ivDoctor)

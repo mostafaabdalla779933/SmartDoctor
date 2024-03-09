@@ -19,12 +19,19 @@ data class UserModel(
     var idNumber:String?="",
     var userState: String?= UserState.Accepted.value,
     var bio:String?="",
-    var specialization:String?="",
+    var specialty:SpecialtyModel?=null,
     var jobNumber:String?=""
 ) : Parcelable {
 
 }
 
+@Parcelize
+data class SpecialtyModel(
+    var name: String? = "",
+    var hash: String? = "",
+    var uri: Uri? = null,
+    var url: String? = ""
+) : Parcelable
 
 @Parcelize
 data class MessageModel(

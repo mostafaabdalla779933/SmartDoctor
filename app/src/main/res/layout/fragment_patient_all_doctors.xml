@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         android:fontFamily="@font/poppins_regular"
         android:text="Choose a medical specialty:"
         android:textColor="@color/black"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="4dp"
+        android:visibility="gone"
         android:background="@drawable/bg_tv_spinner"
         android:popupBackground="@color/white" />
 

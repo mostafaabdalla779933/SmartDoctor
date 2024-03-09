@@ -27,7 +27,7 @@ object FirebaseHelp {
     const val Messages = "Messages"
     const val Image = "Image"
     const val DISEASE = "all_disease"
-    const val COUNT = "COUNT"
+    const val Specialties = "Specialties"
     const val NOTIFICATION = "NOTIFICATION"
 
     fun getUserID() = auth.currentUser?.uid ?: ""

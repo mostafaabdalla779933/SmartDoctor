@@ -64,8 +64,25 @@
             android:text="Doctors"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_diagnosis" />
+
+
+        <TextView
+            android:id="@+id/tvSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_rounded_primary"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:lineSpacingExtra="10dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="14dp"
+            android:text="Specialization"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_doctors" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

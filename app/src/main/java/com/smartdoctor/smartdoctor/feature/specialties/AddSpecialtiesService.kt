@@ -1,4 +1,4 @@
-package com.smartdoctor.smartdoctor.feature.add_symptoms
+package com.smartdoctor.smartdoctor.feature.specialties
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,13 +12,13 @@ import androidx.core.app.JobIntentService
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHelp
-import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
-import com.smartdoctor.smartdoctor.common.showMessage
 import com.google.firebase.firestore.SetOptions
 import com.smartdoctor.smartdoctor.R
-import com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel
+import com.smartdoctor.smartdoctor.common.firebase.data.SpecialtyModel
+import com.smartdoctor.smartdoctor.common.showMessage
 
-class AddDiseaseService : JobIntentService() {
+
+class AddSpecialtiesService : JobIntentService() {
 
     var isFinished = false
     var isFailed = false
@@ -30,37 +30,33 @@ class AddDiseaseService : JobIntentService() {
         return Service.START_STICKY
     }
 
-    override fun onHandleWork(intent: Intent) {
-
-    }
+    override fun onHandleWork(intent: Intent) {}
 
     private fun signUp(intent: Intent?) {
-        intent?.extras?.getParcelable<DiseaseModel>(FirebaseHelp.DISEASE)?.let { disease ->
-            disease.uri?.let {
-                uploadImage(it, disease.hash ?: "", disease)
+        intent?.extras?.getParcelable<SpecialtyModel>(FirebaseHelp.Specialties)?.let { specialty ->
+            specialty.uri?.let {
+                uploadImage(it, specialty)
             } ?: kotlin.run {
-                addDisease(id = disease.hash ?: "", profileUrl = "", diseaseModel = disease)
+                addDisease(specialty  = specialty)
             }
         }
     }
 
-    private fun uploadImage(uri: Uri, id: String, diseaseModel: DiseaseModel) {
+    private fun uploadImage(uri: Uri, specialty: SpecialtyModel) {
         FirebaseHelp.uploadImageToCloudStorage(this, uri, "disease", { url ->
-            addDisease(id = id, profileUrl = url, diseaseModel = diseaseModel)
+            specialty.url = url
+            addDisease(specialty = specialty)
         }, {
             isFailed = true
             showMessage(it.localizedMessage ?: "something wrong")
         })
     }
 
-    private fun addDisease(id: String, profileUrl: String, diseaseModel: DiseaseModel) {
-        diseaseModel.hash = id
-        diseaseModel.uri = null
-        diseaseModel.profileUrl = profileUrl
-
+    private fun addDisease(specialty: SpecialtyModel) {
+        specialty.uri = null
         FirebaseHelp
-            .fireStore.collection(FirebaseHelp.DISEASE)
-            .document(id).set(diseaseModel, SetOptions.merge())
+            .fireStore.collection(FirebaseHelp.Specialties)
+            .document(specialty.hash ?: "").set(specialty, SetOptions.merge())
             .addOnSuccessListener {
                 isFinished = true
                 showMessage("data sent")

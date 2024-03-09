@@ -40,6 +40,10 @@
         android:theme="@style/Theme.SmartDoctor"
         tools:targetApi="31">
         <service
+            android:name=".feature.specialties.AddSpecialtiesService"
+            android:enabled="true"
+            android:exported="true"/>
+        <service
             android:name=".feature.inquiries.UploadImageService"
             android:enabled="true"
             android:exported="true" />

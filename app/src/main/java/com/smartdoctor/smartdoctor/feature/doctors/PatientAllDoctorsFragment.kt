@@ -58,7 +58,7 @@ class PatientAllDoctorsFragment : BaseFragment<FragmentPatientAllDoctorsBinding>
         showLoading()
         FirebaseHelp.getAllObjects<UserModel>(FirebaseHelp.USERS, {
             hideLoading()
-            adapter.submitList(it.filter { user -> user.userType == UserType.Doctor.value && user.userState != UserState.Deleted.value })
+            adapter.submitList(it.filter { user -> user.userType == UserType.Doctor.value && user.userState == UserState.Accepted.value })
         }, {
             hideLoading()
             requireContext().showMessage(it)

@@ -274,5 +274,15 @@
         android:name="com.smartdoctor.smartdoctor.feature.inquiries.TransferInquiryFragment"
         android:label="fragment_transfer_inquiry"
         tools:layout="@layout/fragment_transfer_inquiry" />
+    <fragment
+        android:id="@+id/allSpecialtiesFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.specialties.AllSpecialtiesFragment"
+        android:label="fragment_all_specialties"
+        tools:layout="@layout/fragment_all_specialties" />
+    <fragment
+        android:id="@+id/addSpecialtiesFragment"
+        android:name="com.smartdoctor.smartdoctor.feature.specialties.AddSpecialtiesFragment"
+        android:label="fragment_add_specialties"
+        tools:layout="@layout/fragment_add_specialties" />
 
 </navigation>
