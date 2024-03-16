@@ -36,6 +36,14 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationVariants.all{
+                variant ->
+                    variant.outputs.each{
+                        output->
+                            def name = "smart doctor.apk"
+                            output.outputFileName = name
+                    }
+            }
         }
     }
     compileOptions {
