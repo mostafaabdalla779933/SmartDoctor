@@ -32,13 +32,18 @@ class DiseaseDialogFragment : BaseFragmentDialog<FragmentDiseaseDialogBinding>()
 
             rvInstructions.adapter = adapter
             tvName.text = args.disease.name
-            tvDiseaseState.text = if(args.flag) "You are suffering from" else "You don't suffering from"
-            if(args.flag){
+            if(args.flag == "1"){
                 adapter.list = args.disease.treatments ?: mutableListOf()
                 adapter.notifyDataSetChanged()
-            }else {
+                tvDiseaseState.text = "You are suffering from"
+            }else if(args.flag == "2") {
                 rvInstructions.visibility = View.GONE
                 tvTitle.visibility = View.GONE
+                tvDiseaseState.text = "You don't suffering from"
+            } else {
+                rvInstructions.visibility = View.GONE
+                tvTitle.visibility = View.GONE
+                tvDiseaseState.text = "Please see your doctor to get a proper diagnosis"
             }
 
             btnHome.setOnClickListener {

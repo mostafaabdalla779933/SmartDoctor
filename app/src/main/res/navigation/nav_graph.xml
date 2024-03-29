@@ -253,7 +253,7 @@
         tools:layout="@layout/fragment_disease_dialog" >
 
         <argument
-            app:argType="boolean"
+            app:argType="string"
             android:name="flag"/>
         <argument
             app:argType="com.smartdoctor.smartdoctor.common.firebase.data.DiseaseModel"

@@ -44,11 +44,15 @@ class ScanDiseaseFragment : BaseFragment<FragmentScanDiseaseBinding>() {
                         }
 
                         args.disease.diagnoses?.none { e -> e.numberOfQuestion == adapter.list.filter { e -> e.answer == true }.size } == false  -> {
-                            findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to true,"disease" to args.disease))
+                            findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to "1","disease" to args.disease))
+                        }
+
+                        adapter.list.all { e -> e.answer == false } ->{
+                            findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to "3","disease" to args.disease))
                         }
 
                         else -> {
-                            findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to false,"disease" to args.disease))
+                            findNavController().navigate(R.id.diseaseDialogFragment, bundleOf("flag" to "2","disease" to args.disease))
                         }
 
                     }

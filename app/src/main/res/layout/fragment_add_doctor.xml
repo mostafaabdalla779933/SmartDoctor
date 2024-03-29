@@ -95,14 +95,27 @@
                 android:inputType="number"
                 android:padding="14dp" />
 
-            <Spinner
-                android:id="@+id/spinner_specialization"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_tv_spinner"
-                android:popupBackground="@color/white" />
+                android:background="@color/transparent">
+                <Spinner
+                    android:id="@+id/spinner_specialization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tv_spinner"
+                    android:popupBackground="@color/white" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_down"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="10dp"/>
+
+            </FrameLayout>
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_specialization"
