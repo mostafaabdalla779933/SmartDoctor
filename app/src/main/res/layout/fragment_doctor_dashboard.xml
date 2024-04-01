@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/iv_notification"
             app:contentPadding="9dp"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/RoundedImageView.10dp" />

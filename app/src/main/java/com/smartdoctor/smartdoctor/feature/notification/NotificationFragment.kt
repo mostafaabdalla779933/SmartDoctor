@@ -11,6 +11,7 @@ import com.donationinstitutions.donationinstitutions.common.firebase.FirebaseHel
 import com.smartdoctor.smartdoctor.R
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
 import com.smartdoctor.smartdoctor.common.firebase.data.NotificationModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserType
 import com.smartdoctor.smartdoctor.common.navigateWithAnimation
 import com.smartdoctor.smartdoctor.databinding.FragmentNotificationBinding
 import com.smartdoctor.smartdoctor.databinding.ItemNotificationBinding
@@ -19,6 +20,7 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
 
     val adapter by lazy {
         NotificationAdapter {
+            if(FirebaseHelp.user?.userType == UserType.User.value) {
             findNavController().navigateWithAnimation(
                 R.id.chatFragment,
                 bundleOf(
@@ -29,6 +31,18 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
                     "userToSend" to it.toUserDoctor
                 )
             )
+            } else {
+                findNavController().navigateWithAnimation(
+                    R.id.chatFragment,
+                    bundleOf(
+                        "roomId" to FirebaseHelp.getRoomID(
+                            doctorID = FirebaseHelp.getUserID() ,
+                            patientID = it.toUserPatient?.userId ?: ""
+                        ),
+                        "userToSend" to it.toUserPatient
+                    )
+                )
+            }
         }
     }
 
@@ -51,7 +65,7 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
         showLoading()
         FirebaseHelp.getAllObjects<NotificationModel>(FirebaseHelp.NOTIFICATION, {
             hideLoading()
-            adapter.submitList(it.filter { e -> e.toUserPatient?.userId == FirebaseHelp.getUserID() })
+            adapter.submitList(it.filter { e -> e.toUserPatient?.userId == FirebaseHelp.getUserID() || e.toUserDoctor?.userId == FirebaseHelp.getUserID() })
         }, {
             hideLoading()
             showErrorMsg(it)
@@ -72,8 +86,13 @@ class NotificationAdapter(val onItemClicked: (NotificationModel) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: NotificationModel) {
             binding.apply {
-                tvNewMessage.text =
-                    "Doctor ${item.fromDoctor?.name} transferred your inquiry to doctor ${item.toUserDoctor?.name}"
+                if(FirebaseHelp.user?.userType == UserType.User.value) {
+                    tvNewMessage.text =
+                        "Doctor ${item.fromDoctor?.name} transferred your inquiry to doctor ${item.toUserDoctor?.name}"
+                }else {
+                    tvNewMessage.text =
+                        "Doctor ${item.fromDoctor?.name} transferred patient ${item.toUserPatient?.name} to you"
+                }
                 tvDate.text = item.date
 
                 root.setOnClickListener {

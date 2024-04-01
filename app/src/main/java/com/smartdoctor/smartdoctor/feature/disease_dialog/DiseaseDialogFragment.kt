@@ -36,10 +36,6 @@ class DiseaseDialogFragment : BaseFragmentDialog<FragmentDiseaseDialogBinding>()
                 adapter.list = args.disease.treatments ?: mutableListOf()
                 adapter.notifyDataSetChanged()
                 tvDiseaseState.text = "You are suffering from"
-            }else if(args.flag == "2") {
-                rvInstructions.visibility = View.GONE
-                tvTitle.visibility = View.GONE
-                tvDiseaseState.text = "You don't suffering from"
             } else {
                 rvInstructions.visibility = View.GONE
                 tvTitle.visibility = View.GONE
