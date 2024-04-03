@@ -65,7 +65,7 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
         showLoading()
         FirebaseHelp.getAllObjects<NotificationModel>(FirebaseHelp.NOTIFICATION, {
             hideLoading()
-            adapter.submitList(it.filter { e -> e.toUserPatient?.userId == FirebaseHelp.getUserID() || e.toUserDoctor?.userId == FirebaseHelp.getUserID() })
+            adapter.submitList(it.filter { e -> e.toUserPatient?.userId == FirebaseHelp.getUserID() || e.toUserDoctor?.userId == FirebaseHelp.getUserID() }.sortedByDescending { e -> e.hash?.toLong() ?: 0L }.toMutableList())
         }, {
             hideLoading()
             showErrorMsg(it)

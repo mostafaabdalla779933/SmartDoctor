@@ -35,16 +35,14 @@ data class SpecialtyModel(
 
 @Parcelize
 data class MessageModel(
-    val senderId :String?=null,
-    val receiverId:String?=null,
-    val message:String?=null,
-    val url:String?=null,
-    val date:String?=null,
-    val hash:Long?=null,
-    val roomId:String?=null,
-    val senderName:String?=null,
-    val sender: UserModel?=null,
-    val receiver: UserModel?=null
+    var message:String?=null,
+    var url:String?=null,
+    var date:String?=null,
+    var hash:Long?=null,
+    var roomId:String?=null,
+    var sender: UserModel?=null,
+    var receiver: UserModel?=null,
+    var transferred:Boolean? = false
 ) : Parcelable
 
 

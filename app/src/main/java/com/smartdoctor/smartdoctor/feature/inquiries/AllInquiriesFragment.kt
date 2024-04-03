@@ -37,7 +37,7 @@ class AllInquiriesFragment : BaseFragment<FragmentAllInquiriesBinding>() {
             {
                 hideLoading()
                 val list =
-                    it.filter { e -> e.receiverId == FirebaseHelp.getUserID() || e.senderId == FirebaseHelp.getUserID() }
+                    it.filter { e -> e.receiver?.userId == FirebaseHelp.getUserID() || e.sender?.userId == FirebaseHelp.getUserID() }
                         .toMutableList()
                 list.sortByDescending { it.hash }
                 val roomItems = mutableListOf<MessageModel>()
@@ -53,7 +53,7 @@ class AllInquiriesFragment : BaseFragment<FragmentAllInquiriesBinding>() {
                             R.id.chatFragment,
                             bundleOf(
                                 "roomId" to (it.roomId ?: ""),
-                                "userToSend" to if (it.senderId == FirebaseHelp.getUserID()) {
+                                "userToSend" to if (it.sender?.userId == FirebaseHelp.getUserID()) {
                                     it.receiver ?: UserModel()
                                 } else user
                             )

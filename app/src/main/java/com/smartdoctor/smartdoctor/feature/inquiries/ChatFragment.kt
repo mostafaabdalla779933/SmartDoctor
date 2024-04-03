@@ -26,8 +26,10 @@ import com.smartdoctor.smartdoctor.common.getLoading
 import com.smartdoctor.smartdoctor.common.getString
 import com.smartdoctor.smartdoctor.common.firebase.data.MessageModel
 import com.smartdoctor.smartdoctor.common.base.BaseFragment
+import com.smartdoctor.smartdoctor.common.firebase.data.NotificationModel
+import com.smartdoctor.smartdoctor.common.firebase.data.UserModel
 import com.smartdoctor.smartdoctor.common.firebase.data.UserType
-import com.smartdoctor.smartdoctor.common.navigateWithAnimation
+import com.smartdoctor.smartdoctor.common.showMessage
 import com.smartdoctor.smartdoctor.databinding.FragmentChatBinding
 import com.smartdoctor.smartdoctor.databinding.ItemRecievedBinding
 import com.smartdoctor.smartdoctor.databinding.ItemSenderBinding
@@ -57,6 +59,66 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
             }
         }
 
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<UserModel>(
+            "doctor"
+        )
+            ?.observe(
+                viewLifecycleOwner
+            ) { doctor ->
+                transferPatient(doctor)
+            }
+
+    }
+
+    private fun transferPatient(doctor: UserModel) {
+        val newRoomId = FirebaseHelp.getRoomID(
+            doctorID = doctor.userId ?: "",
+            patientID = args.userToSend.userId ?: ""
+        )
+        adapter.list.forEach { message ->
+            message?.apply {
+                roomId = newRoomId
+                transferred = true
+                if (sender?.userId == FirebaseHelp.getUserID()) {
+                    sender = doctor
+                } else {
+                    receiver = doctor
+                }
+
+                FirebaseHelp.addObject<MessageModel>(
+                    message,
+                    FirebaseHelp.Messages,
+                    message.hash?.toString() ?: "", {}, {})
+            }
+        }
+        sendNotification(doctor)
+
+    }
+
+
+    private fun sendNotification(doctor:UserModel){
+        val notificationModel = NotificationModel(
+            toUserDoctor = doctor,
+            fromDoctor = FirebaseHelp.user,
+            toUserPatient = args.userToSend,
+            hash = System.currentTimeMillis().toString(),
+            date = SimpleDateFormat("hh:mm a dd/MM/yyyy ").format(Date())
+        )
+        showLoading()
+        FirebaseHelp.addObject<NotificationModel>(
+            notificationModel,
+            FirebaseHelp.NOTIFICATION,
+            notificationModel.hash ?: "",
+            {
+                hideLoading()
+                findNavController().popBackStack(R.id.doctorDashboardFragment,false)
+                requireContext().showMessage("transfer done")
+            },
+            {
+                hideLoading()
+                requireContext().showMessage(it)
+
+            })
     }
 
     private fun initMenu() {
@@ -91,13 +153,10 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
                 if (etMessage.getString().isNotEmpty()) {
                     addMessage(
                         MessageModel(
-                            senderId = FirebaseHelp.getUserID(),
-                            receiverId = args.userToSend.userId,
                             message = etMessage.getString(),
                             hash = System.currentTimeMillis(),
                             roomId = args.roomId,
                             date = SimpleDateFormat("hh:mm:a dd MMM yyyy").format(Date(System.currentTimeMillis())),
-                            senderName = FirebaseHelp.user?.name,
                             sender = FirebaseHelp.user,
                             receiver = args.userToSend,
                         )
@@ -128,14 +187,11 @@ class ChatFragment : BaseFragment<FragmentChatBinding>() {
     private fun addImage(url:String){
         addMessage(
             MessageModel(
-                senderId = FirebaseHelp.getUserID(),
-                receiverId = args.userToSend.userId,
                 message = null,
                 url = url,
                 hash = System.currentTimeMillis(),
                 roomId = args.roomId,
                 date = SimpleDateFormat("hh:mm:a dd MMM yyyy").format(Date(System.currentTimeMillis())),
-                senderName = FirebaseHelp.user?.name,
                 sender = FirebaseHelp.user,
                 receiver = args.userToSend,
             )
@@ -280,7 +336,11 @@ class ChatAdapter(var list:MutableList<MessageModel?>, var userId:String):
         fun onBind(item: MessageModel, position: Int){
             rowView.apply {
                 tvMessage.text = item.message
-                tvDate.text = item.date
+                tvDate.text = if (item.transferred == true) {
+                    item.date + " (old sender)"
+                } else {
+                    item.date
+                }
                 Glide.with(root.context).load(item.sender?.profileUrl).into(img)
                 Glide.with(root.context).load(item.url).placeholder(getLoading(itemView.context)).into(image)
                 when (item.message) {
@@ -302,7 +362,11 @@ class ChatAdapter(var list:MutableList<MessageModel?>, var userId:String):
         fun onBind(item: MessageModel, position: Int){
             rowView.apply {
                 tvMessage.text = item.message
-                tvDate.text = item.date
+                tvDate.text = if (item.transferred == true) {
+                    item.date + " (old sender)"
+                } else {
+                    item.date
+                }
                 Glide.with(root.context).load(item.sender?.profileUrl).into(img)
                 Glide.with(root.context).load(item.url).placeholder(getLoading(itemView.context)).into(image)
                 when (item.message) {
@@ -334,7 +398,7 @@ class ChatAdapter(var list:MutableList<MessageModel?>, var userId:String):
     override fun getItemCount(): Int =list.size
 
     override fun getItemViewType(position: Int): Int {
-        return  if(list[position]?.senderId == userId ){
+        return  if(list[position]?.sender?.userId == userId ){
             SENDER
         }else{
             REC

@@ -1,6 +1,7 @@
 package com.smartdoctor.smartdoctor.feature.inquiries
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
     private var specialtiesAdapter: SpecialtiesSpinnerAdapter? = null
     private var listOfSpecialties = mutableListOf<SpecialtyModel>()
     private var listOfDoctors = mutableListOf<UserModel>()
+    private var selectedListOfDoctors = mutableListOf<UserModel>()
     private val args: TransferInquiryFragmentArgs by navArgs()
     override fun initBinding() = FragmentTransferInquiryBinding.inflate(layoutInflater)
 
@@ -36,30 +38,15 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
 
         binding.apply {
             btnConfirm.setOnClickListener {
-                listOfDoctors.getOrNull(spinnerDoctor.selectedItemPosition)?.let { doctor ->
+                selectedListOfDoctors.getOrNull(spinnerDoctor.selectedItemPosition)?.let { doctor ->
 
-                    val notificationModel = NotificationModel(
-                        toUserDoctor = doctor,
-                        fromDoctor = FirebaseHelp.user,
-                        toUserPatient = args.patient,
-                        hash = System.currentTimeMillis().toString(),
-                        date = SimpleDateFormat("hh:mm a dd/MM/yyyy ").format(Date())
+                    findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                        "doctor",
+                        doctor
                     )
-                    showLoading()
-                    FirebaseHelp.addObject<NotificationModel>(
-                        notificationModel,
-                        FirebaseHelp.NOTIFICATION,
-                        notificationModel.hash ?: "",
-                        {
-                            hideLoading()
-                            findNavController().popBackStack()
-                            requireContext().showMessage("transfer done")
-                        },
-                        {
-                            hideLoading()
-                            requireContext().showMessage(it)
+                    findNavController().popBackStack()
 
-                        })
+
                 } ?: kotlin.run {
                     requireContext().showMessage("select doctor")
                 }
@@ -80,7 +67,7 @@ class TransferInquiryFragment : BaseFragmentDialog<FragmentTransferInquiryBindin
                         listOfSpecialties.getOrNull(position)?.let { spec ->
                             doctorsAdapter?.list =
                                 listOfDoctors.filter { e -> e.specialty?.hash == spec.hash }
-                                    .toMutableList()
+                                    .toMutableList().also { selectedListOfDoctors = it }
                             doctorsAdapter?.notifyDataSetChanged()
                         }
                     }
